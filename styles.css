@@ -1,5 +1,5 @@
 *{
-    margin: 0;
+    margin-top: 0;
     padding: 0;
     outline: none;
     border: none;
@@ -12,13 +12,44 @@ body{
     background: seashell;
 }
 
+header { 
+  height: 50px; 
+  width: 100vw; 
+  padding: 0 30px; 
+  background: #475b6c;
+  position: relative; 
+  z-index: 100; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+} 
+
+.logosec{
+  display: flex;
+  align-items: center;
+}
+
+.searchbar{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.searchbar input[type="text"]{
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-left: 120px;
+}
+
 .container{
     display: flex;
 }
 
 nav{
     position: relative;
-    top: 0;
+    top: 10;
     bottom: 0;
     height: 100vh;
     left: 0;
