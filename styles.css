@@ -10,7 +10,7 @@
   position: fixed;
   top: 0; /* Menetapkan posisi sidebar di bagian atas layar */
   left: 0;
-  background: #00882E;
+  background: #00882D;
   width: 199px;
   height: 100%;
   padding: 17px 0; /* Jarak dari atas dan bawah */
@@ -81,7 +81,7 @@
 
 /* Header styles */
 .header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 199px;
   background: #FFFFFF;
@@ -125,7 +125,7 @@
 
 .notification i{
   width: 30px; /* Ukuran ikon notifikasi */
-  height: 30px;
+  height: 0px;
 }
 
 .profile img {
@@ -145,6 +145,41 @@
   width: calc(100% - 199px); /* Adjusted width */
   padding: 20px;
 }
+
+.content1{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Float the columns side by side */
+.column {
+  float: left;
+  width: 136px;
+  height: 58px;
+  padding: 0 10px;
+  flex-wrap: wrap;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #fbfdfa;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.card value{
+  text-align: center;
+}
+.card i{
+  width: 40px;
+  height: 100%;
+}
+
 
 /* Responsiveness */
 @media (max-width: 1280px) {
