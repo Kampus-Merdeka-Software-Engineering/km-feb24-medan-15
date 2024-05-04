@@ -1,118 +1,160 @@
-*{
-    margin-top: 0;
-    padding: 0;
-    outline: none;
-    border: none;
-    text-decoration: none;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* General styles */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
 }
 
-body{
-    background: seashell;
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0; /* Menetapkan posisi sidebar di bagian atas layar */
+  left: 0;
+  background: #00882E;
+  width: 199px;
+  height: 100%;
+  padding: 17px 0; /* Jarak dari atas dan bawah */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  overflow-x: hidden;
 }
 
-header { 
-  height: 50px; 
-  width: 100vw; 
-  padding: 0 30px; 
-  background: #475b6c;
-  position: relative; 
-  z-index: 100; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-} 
+/* Logo-brand styles */
+.logo-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 61px; /* Jarak dari bawah pembungkus logo-brand ke pembungkus menu */
+}
 
-.logosec{
+/* Logo styles */
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo i {
+  font-size: 28.67px; /* Ukuran ikon shopping bag */
+  color: #00882E;
+}
+
+/* Brand styles */
+.brand {
+  font-family: 'Urbanist Extra Bold', sans-serif; /* Menggunakan font Urbanist Extra Bold */
+  font-weight: 900;
+  font-size: 1.2em;
+  color: #FFFFFF;
+  margin-top: 6px; /* Jarak dari logo */
+}
+
+.menu {
+  margin-top: 0px; /* Reset margin top */
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  height: 60px;
   display: flex;
   align-items: center;
 }
 
-.searchbar{
-  margin-left: auto;
+.menu li a i {
+  min-width: 60px;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Header styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 199px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+  width: calc(100% - 199px - 1vw); /* Adjusted width */
+  height: 30px;
+  padding: 18px 13px;
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Menata header di sebelah kanan sidebar */
+  z-index: 2; /* Menjamin header berada di atas sidebar */
 }
 
-.searchbar input[type="text"]{
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-right: 10px;
-  margin-left: 120px;
+/* Search box styles */
+.search-box {
+  width: 300px; /* Lebar elemen search-box diperlebar */
+  background-color: #235789;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
 }
 
-.container{
-    display: flex;
+.search-box span {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-nav{
-    position: relative;
-    top: 10;
-    bottom: 0;
-    height: 100vh;
-    left: 0;
-    background: #475b6c;
-    width: 280px;
-    overflow: hidden;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+.search-box i {
+  color: #FFFFFF;
+  margin-right: 5px;
 }
 
-.sidebar ul li{
-    width: 100%;
-    list-style: none;
+/* Header icons styles */
+.header-icons {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
 }
 
-.sidebar ul li a{
-    width: 100%;
-    text-decoration: none;
-    color:orange;
-    height: 60px;
-    display: flex;
+.notification i{
+  width: 30px; /* Ukuran ikon notifikasi */
+  height: 30px;
 }
 
-.logo{
-    text-align: center;
-    display: flex;
-    margin: 10px 0 0 10px;
+.profile img {
+  width: 37px; /* Ukuran gambar profil */
+  height: 37px;
+  border-radius: 50%; /* Membuat gambar profil bundar */
+  margin-left: 10px; /* Penyesuaian jarak antara notifikasi dan profil */
+  margin-right: 10px; /* Penyesuaian jarak di sisi kanan profil */
+}
+
+/* Main content styles */
+.main {
+  margin-left: 199px; /* Adjusted margin left */
+}
+
+.main-content {
+  width: calc(100% - 199px); /* Adjusted width */
+  padding: 20px;
+}
+
+/* Responsiveness */
+@media (max-width: 1280px) {
+  .sidebar {
+      width: 160px; /* Mengurangi lebar sidebar pada layar yang lebih kecil */
   }
-  .logo img{
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
+  .main {
+      margin-left: 160px; /* Adjusted margin left */
   }
-  .logo span{
-    font-weight: bold;
-    padding-left: 15px;
-    font-size: 18px;
-    text-transform: uppercase;
+  .main-content {
+      width: calc(100% - 160px); /* Adjusted width */
   }
-  a{
-    position: relative;
-    color: rgb(85, 83, 83);
-    font-size: 14px;
-    display: table;
-    width: 280px;
-    padding: 10px;
-  }
-  nav .fas{
-    position: relative;
-    width: 70px;
-    height: 40px;
-    top: 14px;
-    font-size: 20px;
-    text-align: center;
-  }
-  .nav-item{
-    position: relative;
-    top: 12px;
-    margin-left: 10px;
-  }
-  a:hover{
-    background: #eee;
-  }
-  .logout{
-    position: absolute;
-    bottom: 0;
-  }
+}
