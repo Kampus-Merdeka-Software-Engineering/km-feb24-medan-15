@@ -150,6 +150,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 /* Float the columns side by side */
@@ -178,6 +179,83 @@
 .card i{
   width: 40px;
   height: 100%;
+}
+
+.content2{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Style the bar chart cards */
+.bar {
+  font-size: 13;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #fbfdfa;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center; 
+  margin-right: 15px;
+  width: 321.95px;
+  height: 149.59px;
+}
+
+.pie {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.pie1{
+  font-weight: bold;
+  font-size: 13;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #fbfdfa;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center; 
+  margin-right: 10px;
+  width: 150.05px;
+  height: 149.01px;
+}
+
+.mr-0{
+  margin-right: 0;
+  }
+
+.content3{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+.line1{
+  font-weight: bold;
+  font-size: 13;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #fbfdfa;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center; 
+  margin-right: 15px;
+  width: 394px;
+  height: 150px;
+  margin-right: 23px;
+}
+
+.line2{
+  font-weight: bold;
+  font-size: 13;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #fbfdfa;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center; 
+  margin-right: 15px;
+  width: 394px;
+  height: 150px;
 }
 
 
