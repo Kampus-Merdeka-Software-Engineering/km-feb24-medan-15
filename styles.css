@@ -258,6 +258,30 @@
   height: 150px;
 }
 
+table, th, td{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+table{
+  /* border:1px solid black; */
+  border-spacing: 20px;
+  background-color: #CCCCCC;
+}
+
+th{
+  font-weight: bold;
+  color: #000000;
+  opacity: 42%;
+}
+
+td{
+  /* border:1px solid black; */
+  text-align: center;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  border-spacing: 0;
+}
+
 
 /* Responsiveness */
 @media (max-width: 1280px) {
