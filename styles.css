@@ -8,12 +8,12 @@
 /* Sidebar styles */
 .sidebar {
   position: fixed;
-  top: 0; /* Menetapkan posisi sidebar di bagian atas layar */
+  top: 0;
   left: 0;
   background: #00882D;
   width: 199px;
   height: 100%;
-  padding: 17px 0; /* Jarak dari atas dan bawah */
+  padding: 17px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 61px; /* Jarak dari bawah pembungkus logo-brand ke pembungkus menu */
+  margin-bottom: 61px;
 }
 
 /* Logo styles */
@@ -41,21 +41,21 @@
 }
 
 .logo i {
-  font-size: 28.67px; /* Ukuran ikon shopping bag */
+  font-size: 28.67px;
   color: #00882E;
 }
 
 /* Brand styles */
 .brand {
-  font-family: 'Urbanist Extra Bold', sans-serif; /* Menggunakan font Urbanist Extra Bold */
+  font-family: 'Urbanist Extra Bold', sans-serif;
   font-weight: 900;
   font-size: 1.2em;
   color: #FFFFFF;
-  margin-top: 6px; /* Jarak dari logo */
+  margin-top: 6px;
 }
 
 .menu {
-  margin-top: 0px; /* Reset margin top */
+  margin-top: 0px;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -86,18 +86,18 @@
   left: 199px;
   background: #FFFFFF;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
-  width: calc(100% - 199px - 1vw); /* Adjusted width */
+  width: calc(100% - 199px - 1vw);
   height: 30px;
   padding: 18px 13px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Menata header di sebelah kanan sidebar */
-  z-index: 2; /* Menjamin header berada di atas sidebar */
+  justify-content: space-between;
+  z-index: 2;
 }
 
 /* Search box styles */
 .search-box {
-  width: 300px; /* Lebar elemen search-box diperlebar */
+  width: 300px;
   background-color: #235789;
   border-radius: 50px;
   display: flex;
@@ -124,25 +124,25 @@
 }
 
 .notification i{
-  width: 30px; /* Ukuran ikon notifikasi */
+  width: 30px;
   height: 0px;
 }
 
 .profile img {
-  width: 37px; /* Ukuran gambar profil */
+  width: 37px;
   height: 37px;
-  border-radius: 50%; /* Membuat gambar profil bundar */
-  margin-left: 10px; /* Penyesuaian jarak antara notifikasi dan profil */
-  margin-right: 10px; /* Penyesuaian jarak di sisi kanan profil */
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* Main content styles */
 .main {
-  margin-left: 199px; /* Adjusted margin left */
+  margin-left: 199px;
 }
 
 .main-content {
-  width: calc(100% - 199px); /* Adjusted width */
+  width: calc(100% - 199px);
   padding: 20px;
 }
 
@@ -286,12 +286,12 @@ td{
 /* Responsiveness */
 @media (max-width: 1280px) {
   .sidebar {
-      width: 160px; /* Mengurangi lebar sidebar pada layar yang lebih kecil */
+      width: 160px;
   }
   .main {
-      margin-left: 160px; /* Adjusted margin left */
+      margin-left: 160px;
   }
   .main-content {
-      width: calc(100% - 160px); /* Adjusted width */
+      width: calc(100% - 160px);
   }
 }
