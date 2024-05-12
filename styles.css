@@ -5,28 +5,28 @@
   font-family: 'Urbanist', sans-serif;
 }
 
-/* Sidebar styles */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #00882D;
-  width: 199px;
-  height: 100%;
-  padding: 17px 0;
-  display: flex;
-  flex-direction: column;
+/* Navigation Bar styles */
+.navbar {
+  background: #00882D; 
+  list-style-type: none;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  flex-direction: row;
   align-items: center;
-  z-index: 1;
-  overflow-x: hidden;
+  height:82px
+}
+
+.home{
+  text-align: center;
+  display: flex;
+  padding: 20px;
 }
 
 /* Logo-brand styles */
 .logo-brand {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-bottom: 61px;
 }
 
 /* Logo styles */  
@@ -41,104 +41,78 @@
 }
 
 .logo i {
-  font-size: 28.67px;
+  font-size: 27px;
   color: #00882E;
 }
 
 /* Brand styles */
 .brand {
   font-family: 'Urbanist Extra Bold', sans-serif;
-  font-weight: 900;
-  font-size: 1.2em;
+  font-weight: 1000;
+  font-size: 27px;
   color: #FFFFFF;
-  margin-top: 6px;
+  margin-left: 6px;
 }
 
-.menu {
-  margin-top: 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
+li{
+  display: inline;
 }
 
-.menu li {
-  list-style: none;
+li a:hover{
+  background-color: #235789;
+}
+
+menu li {
+list-style: none;
 }
 
 .menu li a {
-  text-decoration: none;
-  color: #FFFFFF;
-  height: 60px;
-  display: flex;
-  align-items: center;
+text-decoration: none;
+color: #FFFFFF;
+margin-right: 10px;
 }
 
 .menu li a i {
-  min-width: 60px;
-  font-size: 24px;
-  text-align: center;
+margin: 2px;
+font-size: 24px;
+text-align: center;
 }
 
-/* Header styles */
-.header {
-  position: relative;
-  top: 0;
-  left: 199px;
-  background: #FFFFFF;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
-  width: calc(100% - 199px - 1vw);
-  height: 30px;
-  padding: 18px 13px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 2;
+.menu li a i span{
+margin-right: 5px;
+}
+
+.search{
+text-align: center;
+display: flex;
+padding: 20px;
+justify-content: right;
 }
 
 /* Search box styles */
 .search-box {
-  width: 300px;
-  background-color: #235789;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
+width: 241px;
+height: 37px;
+background-color: #235789;
+border-radius: 50px;
+display: flex;
+align-items: center;
 }
 
 .search-box span {
-  font-family: 'Urbanist', sans-serif;
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.5);
+font-family: 'Urbanist', sans-serif;
+font-size: 20px;
+color: rgba(255, 255, 255, 0.5);
+margin-left: 5px;
 }
 
 .search-box i {
-  color: #FFFFFF;
-  margin-right: 5px;
-}
-
-/* Header icons styles */
-.header-icons {
-  display: flex;
-  align-items: center;
-  margin-right: 15px;
-}
-
-.notification i{
-  width: 30px;
-  height: 0px;
-}
-
-.profile img {
-  width: 37px;
-  height: 37px;
-  border-radius: 50%;
-  margin-left: 10px;
-  margin-right: 10px;
+color: #FFFFFF;
+margin-left: 10px;
 }
 
 /* Main content styles */
 .main {
-  margin-left: 199px;
   background-color: #ebe8e8;
 }
 
@@ -167,7 +141,7 @@
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
-  background-color: #fbfdfa;
+  background-color: #ffffff;
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;
@@ -205,12 +179,12 @@
   font-size: 13;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
-  background-color: #fbfdfa;
+  background-color: #ffffff;
   box-sizing: border-box;
   border-radius: 10px;
   text-align: center; 
-  margin-right: 15px;
-  width: 321.95px;
+  margin-right: 19px;
+  width: 407.15px;
   height: 149.59px;
 }
 
@@ -225,12 +199,12 @@
   font-size: 13;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
-  background-color: #fbfdfa;
+  background-color: #ffffff;
   box-sizing: border-box;
   border-radius: 10px;
   text-align: center; 
-  margin-right: 10px;
-  width: 150.05px;
+  margin-right: 13px;
+  width: 189.75px;
   height: 149.01px;
 }
 
@@ -248,14 +222,13 @@ font-weight: bold;
 font-size: 13;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 padding: 16px;
-background-color: #fbfdfa;
+background-color: #ffffff;
 box-sizing: border-box;
 border-radius: 10px;
 text-align: center; 
-margin-right: 15px;
-width: 394px;
+width: 495.85px;
 height: 150px;
-margin-right: 23px;
+margin-right: 29px;
 }
 
 .line2{
@@ -263,12 +236,11 @@ font-weight: bold;
 font-size: 13;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 padding: 16px;
-background-color: #fbfdfa;
+background-color: #ffffff;
 box-sizing: border-box;
 border-radius: 10px;
 text-align: center; 
-margin-right: 15px;
-width: 394px;
+width: 495.85px;
 height: 150px;
 }
 
@@ -289,12 +261,13 @@ font-family: "Arial", Helvetica, sans-serif
   padding: 10px;
   font-size: 18px;
   border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 table{
-  border-spacing: 20px;
-  width: 825px;
-  height: 340px;
+border-spacing: 9px;
+width: 1019.92px;
+height: auto;
 }
 
 th{
@@ -303,11 +276,11 @@ color: #000000;
 }
 
 td{
-/* border:1px solid black; */
 text-align: center;
 background-color: #FFFFFF;
 border-radius: 5px;
 border-spacing: 0;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .filtering{
@@ -441,13 +414,58 @@ border-spacing: 0;
 
 /* Responsiveness */
 @media (max-width: 1280px) {
-  .sidebar {
-      width: 160px;
+  .navbar {
+      grid-template-columns: auto auto; /* Mengubah grid template menjadi dua kolom */
+      justify-content: center; /* Pusatkan item pada navbar */
   }
-  .main {
-      margin-left: 160px;
+  
+  .search,
+  .home {
+      padding: 10px; /* Padding yang lebih kecil untuk bagian pencarian dan beranda */
   }
+  
+  .search-box {
+      width: 200px; /* Lebar kotak pencarian yang lebih kecil */
+  }
+  
+  .content1,
+  .content2,
+  .content3 {
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap; /* Pusatkan konten */
+  }
+  
   .main-content {
-      width: calc(100% - 160px);
+      padding: 10px; /* Padding yang lebih kecil untuk konten utama */
   }
-}
+  
+  .grid-container {
+      grid-template-columns: auto; /* Hanya satu kolom di grid container */
+      justify-content: center; /* Pusatkan grid container */
+  }
+  
+  .grid1,
+  .pie,
+  .pie1 {
+      justify-content: center; /* Pusatkan konten di dalam grid */
+  }
+  
+  .line1,
+  .line2 {
+      margin-right: 0; /* Hapus margin kanan pada line cards */
+  }
+  
+  table {
+      width: 100%; /* Lebar tabel menjadi 100% */
+  }
+  
+  .container,
+  .dropdown {
+      margin: 10px 0; /* Ruang antara container dan dropdown */
+  }
+  
+  .dropdown-content {
+      width: 150px; /* Lebar dropdown */
+  }
+  }

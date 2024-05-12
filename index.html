@@ -11,37 +11,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <div class="search-container">
+    <nav class="navbar">
+        <div class="home">
+            <div class="logo-brand">
+                <div class="logo"><i class="fas fa-shopping-bag"></i></div>
+                <div class="brand">Superstore</div>
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#"><i class="fas fa-chart-line"></i> <span>Dashboard</span></a></li>
+                <li><a href="#"><i class="fas fa-database"></i> <span>Master Data</span></a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> <span>Analysis</span></a></li>
+                <li><a href="#"><i class="fas fa-people-group"></i> <span>About Team</span></a></li>
+            </ul>
+        </div>    
+        <div class="search">
             <div class="search-box">
                 <i class="fas fa-search"></i>
                 <span>Search</span>
             </div>
         </div>
-        <div class="header-icons">
-            <div class="notification">
-                <i class="fa-regular fa-bell" style="font-size:24px;"></i>
-            </div>
-            <div class="profile">
-                <img src="image/profile1.jpg" alt="Profile Picture">
-            </div>
-        </div>
-    </header>
-    <aside class="sidebar">
-        <div class="logo-brand">
-            <div class="logo"><i class="fas fa-shopping-bag"></i></div>
-            <div class="brand">Superstore</div>
-        </div>
-        <ul class="menu">
-            <li><a href="#"><i class="fas fa-chart-line"></i> <span>Dashboard</span></a></li>
-            <li><a href="#"><i class="fas fa-database"></i> <span>Master Data</span></a></li>
-            <li><a href="#"><i class="fas fa-tasks"></i> <span>Manage Order</span></a></li>
-            <li><a href="#"><i class="fas fa-chart-bar"></i> <span>Analysis</span></a></li>
-            <li><a href="#"><i class="fas fa-tachometer-alt"></i> <span>Performance</span></a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
-            <li><a href="#"><i class="fas fa-question-circle"></i> <span>Help</span></a></li>
-        </ul>
-    </aside>
+    </nav>
     <main class="main">
         <section class="main-content">
             <div class="content1"> 
@@ -106,7 +97,7 @@
                     </div>
                 </div>
                 <div class="content4">
-                    <div class="title">Recent Order</div>
+                    <div class="title">Recent Orders</div>
                 </div>
                 <div class="content5">
                     <table>
@@ -259,3 +250,5 @@
                 </div>
             </div>
         </section>
+    </main>
+</body>
