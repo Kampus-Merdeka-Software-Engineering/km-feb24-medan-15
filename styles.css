@@ -80,8 +80,8 @@ font-size: 24px;
 text-align: center;
 }
 
-.menu li a i span{
-margin-right: 5px;
+.menu li span {
+  font-size: 20px;
 }
 
 .search{
@@ -172,7 +172,7 @@ margin-left: 10px;
 
 .grid1{
   display: grid;
-  row-gap: 10px;
+  row-gap: 20px;
 }
 
 .content2{
@@ -182,7 +182,7 @@ margin-left: 10px;
 
 /* Style the bar chart cards */
 .bar {
-  font-size: 13;
+  font-size: 13px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   background-color: #ffffff;
@@ -191,7 +191,7 @@ margin-left: 10px;
   text-align: center; 
   margin-right: 19px;
   width: 407.15px;
-  height: 149.59px;
+  height: 197.96px;
 }
 
 .pie {
@@ -202,7 +202,7 @@ margin-left: 10px;
 
 .pie1{
   font-weight: bold;
-  font-size: 13;
+  font-size: 13px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   background-color: #ffffff;
@@ -211,7 +211,7 @@ margin-left: 10px;
   text-align: center; 
   margin-right: 13px;
   width: 189.75px;
-  height: 149.01px;
+  height: 197.96px;
 }
 
 .mr-0{
@@ -225,7 +225,7 @@ margin-left: 10px;
 
 .line1{
 font-weight: bold;
-font-size: 13;
+font-size: 13px;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 padding: 16px;
 background-color: #ffffff;
@@ -233,13 +233,13 @@ box-sizing: border-box;
 border-radius: 10px;
 text-align: center; 
 width: 495.85px;
-height: 150px;
+height: 217.06px;
 margin-right: 29px;
 }
 
 .line2{
 font-weight: bold;
-font-size: 13;
+font-size: 13px;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 padding: 16px;
 background-color: #ffffff;
@@ -247,7 +247,7 @@ box-sizing: border-box;
 border-radius: 10px;
 text-align: center; 
 width: 495.85px;
-height: 150px;
+height: 217.06px;
 }
 
 table, th, td{
@@ -416,6 +416,23 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.title{
+  position: relative;
+  text-align: center;
+  font-size: 36px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 36px;
+}
+
+.content7{
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  height: 231px;
+  width: 100%;
+  background-color: #d9d9d9;
 }
 
 /* Responsiveness */
