@@ -55,7 +55,7 @@
 }
 
 li{
-  display: inline;
+  display: inline-block;
 }
 
 li a:hover{
@@ -69,7 +69,9 @@ list-style: none;
 .menu li a {
 text-decoration: none;
 color: #FFFFFF;
-margin-right: 10px;
+padding: 10px;
+border-radius: 50px;
+cursor: pointer;
 }
 
 .menu li a i {
@@ -140,7 +142,6 @@ margin-left: 10px;
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
   background-color: #ffffff;
   box-sizing: border-box;
   border-radius: 10px;
@@ -148,12 +149,17 @@ margin-left: 10px;
   align-items: center;
 }
 
-.card value{
+.value{
   text-align: center;
+  padding: 0px 2px 0px 6px;
 }
 .card i{
   width: 40px;
   height: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 16px 0px 16px 16px;
+  background-color: #f1d302;
 }
 
 .grid-container{
