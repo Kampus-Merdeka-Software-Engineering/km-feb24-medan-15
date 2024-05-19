@@ -3,13 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     navbarLinks.forEach(navbarLink => {
         navbarLink.addEventListener('click', function(e) {
-            e.preventDefault(); // Mencegah perilaku default dari link
+            e.preventDefault();
             
-            const targetId = this.getAttribute('href'); // Mendapatkan nilai href dari link
-            const targetSection = document.querySelector(targetId); // Mendapatkan elemen dengan id yang sesuai
+            const targetId = this.getAttribute('href').substring(1); // Mengambil id tanpa tanda '#'
+            const targetSection = document.getElementById(targetId); // Mengambil elemen dengan id yang sesuai
 
             if (targetSection) {
-                // Melakukan scroll ke elemen target dengan efek smooth
                 window.scrollTo({
                     top: targetSection.offsetTop,
                     behavior: 'smooth'

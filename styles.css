@@ -189,6 +189,11 @@ section {
   flex-wrap: wrap;
 }
 
+#barChart{
+  display: block;
+  margin: auto;
+}
+
 .pie1{
   font-weight: bold;
   font-size: 13px;
@@ -237,6 +242,16 @@ border-radius: 10px;
 text-align: center; 
 width: 495.85px;
 height: 217.06px;
+}
+
+#lineChart1{
+  display: block;
+  margin: auto;
+}
+
+#lineChart2{
+  display: block;
+  margin: auto;
 }
 
 .content4{
@@ -413,7 +428,7 @@ td:nth-child(5) {
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.container:active input ~ .checkmark {
   background-color: black;
 }
 
