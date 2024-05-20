@@ -485,6 +485,13 @@ td:nth-child(5) {
   margin-top: 15px;
 }
 
+footer {
+  background-color: #021780 !important;
+  color: white;
+  text-align: center;
+  padding: 12px;
+}
+
 /* Responsiveness */
 @media (max-width: 1280px) {
   .navbar {
