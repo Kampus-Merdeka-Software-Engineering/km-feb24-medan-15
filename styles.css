@@ -227,7 +227,7 @@ box-sizing: border-box;
 border-radius: 10px;
 text-align: center; 
 width: 495.85px;
-height: 217.06px;
+height: 200.29px;
 margin-right: 29px;
 }
 
@@ -241,7 +241,7 @@ box-sizing: border-box;
 border-radius: 10px;
 text-align: center; 
 width: 495.85px;
-height: 217.06px;
+height: 200.29px;
 }
 
 #lineChart1{
@@ -254,14 +254,15 @@ height: 217.06px;
   margin: auto;
 }
 
-.content4{
+.content4 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
-  background-color: #ffffff;
+  background-color: #b8b4b4;
   box-sizing: border-box;
   text-align: center;
-  margin-right: 19px;
+  margin-right: 30px;
   border-radius: 10px;
+  position: relative; 
 }
 
 .content5 {
