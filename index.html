@@ -105,8 +105,27 @@
                         </div>
                     </div>
                     <div class="content4">
-                        BLANK
-                    </div>
+                        <div class="slider">
+                            <div class="slides">
+                                <div class="slide" id="slide-1">
+                                    <p>The highest total sales and the fastest increase were in October 2017.</p>
+                                </div>
+                                <div class="slide" id="slide-2">
+                                    <p>This is the second slide content. It can be a sentence or a paragraph.</p>
+                                </div>
+                                <div class="slide" id="slide-3">
+                                    <p>This is the third slide content. It can be a sentence or a paragraph.</p>
+                                </div>
+                            </div>
+                            <!-- <button class="prev" onclick="moveSlides(-1)">&#10094;</button>
+                            <button class="next" onclick="moveSlides(1)">&#10095;</button> -->
+                            <div class="dot-container">
+                                <span class="dot" onclick="currentSlide(0)"></span>
+                                <span class="dot" onclick="currentSlide(1)"></span>
+                                <span class="dot" onclick="currentSlide(2)"></span>
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
                 <div class="filtering">
                     <h2>Filtering</h2>
@@ -278,9 +297,8 @@
         </div>
     </footer>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-
-    // Bar Chart
+        document.addEventListener("DOMContentLoaded", function() {
+               // Bar Chart
     const ctxBar = document.getElementById('barChart').getContext('2d');
     const barChart = new Chart(ctxBar, {
         type: 'bar',
@@ -490,6 +508,43 @@
             }
         }
     });
+    
+// Initialize slide index and show the first slide
+let slideIndex = 0;
+    showSlides(slideIndex);
+
+    // Functions to move between slides and set the current slide
+    function moveSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    // Function to show the slides
+    function showSlides(n) {
+        let slides = document.querySelectorAll('.slide');
+        let dots = document.querySelectorAll('.dot');
+        if (n >= slides.length) {
+            slideIndex = 0;
+        }
+        if (n < 0) {
+            slideIndex = slides.length - 1;
+        }
+        slides.forEach((slide, index) => {
+            slide.style.display = (index === slideIndex) ? 'block' : 'none';
+        });
+        dots.forEach((dot, index) => {
+            dot.className = dot.className.replace(" active", "");
+            if (index === slideIndex) {
+                dot.className += " active";
+            }
+        });
+    }
+
+    window.moveSlides = moveSlides;
+    window.currentSlide = currentSlide;
 });
     </script>
 </body>
