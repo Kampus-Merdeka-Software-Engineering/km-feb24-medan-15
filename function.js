@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const ctxLine1 = document.getElementById('lineChart1').getContext('2d');
     const ctxLine2 = document.getElementById('lineChart2').getContext('2d');
 
-    fetch(data.json)
+    fetch('data.json')
         .then(response => response.json())
         .then(data => {
             // Bar chart for city sales
@@ -316,6 +316,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
             });
+            console.log(data);
         })
         .catch(error => console.error('Error loading JSON data:', error));
 });
