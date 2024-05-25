@@ -9,63 +9,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- Java Script -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="functions.js"></script>
-
 </head>
 <body>
     <nav class="navbar">
         <div class="home">
             <div class="logo-brand">
-                <div class="logo"><i class="fa-brands fa-shopify"></i></i></div>
+                <div class="logo"><i class="fa-brands fa-shopify"></i></div>
                 <div class="brand">Superstore</div>
             </div>
         </div>
         <div class="menu">
             <ul>
                 <li><a href="#Dashboard"><i class="fas fa-house"></i> <span>Dashboard</span></a></li>
-                <li><a href="#Master Data"><i class="fas fa-database"></i> <span>Master Data</span></a></li>
-                <li><a href="#Analysis"><i class="fas fa-chart-bar"></i> <span>Analysis</span></a></li>
-                <li><a href="#About Team"><i class="fas fa-people-group"></i> <span>About Team</span></a></li>
+                <li><a href="#Master Data"><i class="fas fa-database"></i> <span>Recent Orders</span></a></li>
+                <li><a href="#About Team"><i class="fas fa-people-group"></i> <span>Our Team</span></a></li>
             </ul>
         </div>
         <form class="example" action="function.js">
             <input type="text" placeholder="Search..." id="SearchBox">
-            <!-- <button type="submit"><i class="fas fa-search"></i></button> -->
         </form>
     </nav>
+
     <main class="main">
         <section id="Dashboard">
             <div class="content1"> 
-                <h2 style="font-weight: 400; font-size: 35px; font-family:urbanist; text-align: center;">Welcome, Admin!</h2>
+                <h2>Welcome, Admin!</h2>
                 <div class="scorecard">
                     <div class="row">
                         <div class="column">  
                             <div class="card">
-                                <i class="fa-solid fa-cart-shopping" style="font-size:24px;"></i>
+                                <i class="fa-solid fa-cart-shopping"></i>
                                 <div class="value">
-                                    <p style="font-size: 10px">Total Order</p>
-                                    <p style="font-weight: bold; font-size: 22px;">7,142</h2>
+                                    <p>Total Order</p>
+                                    <p class="bold-value">7,142</p>
                                 </div> 
                             </div>
                         </div>
                         <div class="column">
                             <div class="card">
-                                <i class="fa-solid fa-coins" style="font-size:24px;"></i>
+                                <i class="fa-solid fa-coins"></i>
                                 <div class="value">
-                                    <p style="font-size: 10px">Total Sales</p>
-                                    <p style="font-weight: bold; font-size: 22px;">540.5K</h2>
+                                    <p>Total Sales</p>
+                                    <p class="bold-value">540.5K</p>
                                 </div>                                                               
                             </div>
                         </div>
                         <div class="column">
                             <div class="card">
-                                <i class="fa-solid fa-hand-holding-dollar" style="font-size:24px;"></i>
+                                <i class="fa-solid fa-hand-holding-dollar"></i>
                                 <div class="value">
-                                    <p style="font-size: 10px;">Total Revenue</p>
-                                    <p style="font-weight: bold; font-size: 22px;">92.9K</h2>
+                                    <p>Total Revenue</p>
+                                    <p class="bold-value">92.9K</p>
                                 </div>                                                               
                             </div>
                         </div>
@@ -76,8 +70,8 @@
                 <div class="grid1">
                     <div class="content2">
                         <div class="bar">
-                            <p id="barChartTitle" style="font-weight: bold;">Sales by City</p>
-                            <canvas id="barChart" style="width: 343.69px; height: 149.77px; margin-top: 8px;"></canvas>
+                            <p id="barChartTitle" class="bold-text">Sales by City</p>
+                            <canvas id="barChart"></canvas>
                         </div>
                         <div class="pie">
                             <div class="pie1">
@@ -97,11 +91,11 @@
                     <div class="content3">
                         <div class="line1">
                             <p>Yearly Sales</p>
-                            <canvas id="lineChart1" style="width: 422.86px; height: 138.2px; margin-top: 8px;"></canvas>
+                            <canvas id="lineChart1"></canvas>
                         </div>
                         <div class="line2">
                             <p>Monthly Sales</p>
-                            <canvas id="lineChart2" style="width: 396.43px; height: 141.99px; margin-top: 8px;"></canvas>
+                            <canvas id="lineChart2"></canvas>
                         </div>
                     </div>
                     <div class="content4">
@@ -117,8 +111,6 @@
                                     <p>This is the third slide content. It can be a sentence or a paragraph.</p>
                                 </div>
                             </div>
-                            <!-- <button class="prev" onclick="moveSlides(-1)">&#10094;</button>
-                            <button class="next" onclick="moveSlides(1)">&#10095;</button> -->
                             <div class="dot-container">
                                 <span class="dot" onclick="currentSlide(0)"></span>
                                 <span class="dot" onclick="currentSlide(1)"></span>
@@ -292,259 +284,9 @@
         </section>
     </main>
     <footer class="footer">
-        <div class="container">
-            <p>Copyright &copy; 2024 Section Medan Team 15 - Superstore Dashboard</p>
-        </div>
+        <p>Copyright &copy; 2024 Section Medan Team 15 - Superstore Dashboard</p>
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-               // Bar Chart
-    const ctxBar = document.getElementById('barChart').getContext('2d');
-    const barChart = new Chart(ctxBar, {
-        type: 'bar',
-        data: {
-            labels: ['Los Angeles', 'New York City', 'Seattle', 'San Francisco', 'Philadelphia'],
-            datasets: [{
-                data: [52000, 50000, 28000, 26000, 23000],
-                backgroundColor: [
-                    'rgba(0, 136, 46, 1)',
-                    'rgba(0, 136, 46, 1)',
-                    'rgba(0, 136, 46, 1)',
-                    'rgba(0, 136, 46, 1)',
-                    'rgba(0, 136, 46, 1)'
-                ],
-                borderColor: [
-                    'rgba(0, 136, 46, 1)',
-                    'rgba(0, 136, 46, 1)',
-                    'rgba(0, 136, 46, 1)',
-                    'rgba(0, 136, 46, 1)',
-                    'rgba(0, 136, 46, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                    font: {
-                        size: 7 // Ganti sesuai ukuran font yang diinginkan
-                    },
-                    color: '#000000' // Ganti sesuai warna font yang diinginkan
-                    }
-                },
-                x: {
-                    ticks: {
-                    // Set rotation to 0 to make the labels horizontal
-                    maxRotation: 0,
-                    minRotation: 0,
-                    // Set font size and color for x-axis labels
-                    font: {
-                        size: 7 // Ganti sesuai ukuran font yang diinginkan
-                    },
-                    color: '#000000' // Ganti sesuai warna font yang diinginkan
-                    }
-                }
-            },
-        plugins: {
-                legend: {
-                    display: false // Menghilangkan legend
-                }
-            }
-        }
-    });
-
-    // Pie Chart
-    const ctxPie1 = document.getElementById('pieChart1').getContext('2d');
-    const pieChart1 = new Chart(ctxPie1, {
-    type: 'pie',
-    data: {
-    datasets: [{
-        data: [34, 28.1, 21.1, 16.7],
-        backgroundColor: [
-            'rgba(35, 87, 137, 1)',
-            'rgba(194, 41, 46, 1)',
-            'rgba(241, 211, 1, 1)',
-            'rgba(0, 136, 46, 1)'],
-        borderColor: [
-            'rgba(35, 87, 137, 1)',
-            'rgba(194, 41, 46, 1)',
-            'rgba(241, 211, 1, 1)',
-            'rgba(0, 136, 46, 1)'],
-        borderWidth: 1
-            }]
-        },
-    });
-
-    const ctxPie2 = document.getElementById('pieChart2').getContext('2d');
-    const pieChart2 = new Chart(ctxPie2, {
-    type: 'pie',
-    data: {
-    // labels: ['North', 'South', 'East', 'West'],
-    datasets: [{
-        data: [51.8, 30.1, 18.1],
-        backgroundColor: [
-            'rgba(35, 87, 137, 1)',
-            'rgba(194, 41, 46, 1)',
-            'rgba(241, 211, 1, 1)'],
-        borderColor: [
-            'rgba(35, 87, 137, 1)',
-            'rgba(194, 41, 46, 1)',
-            'rgba(241, 211, 1, 1)'],
-        borderWidth: 1
-            }]
-        },
-    });
-
-    const ctxPie3 = document.getElementById('pieChart3').getContext('2d');
-    const pieChart3 = new Chart(ctxPie3, {
-    type: 'pie',
-    data: {
-    // labels: ['North', 'South', 'East', 'West'],
-    datasets: [{
-        data: [59, 21, 19.9],
-        backgroundColor: [
-            'rgba(35, 87, 137, 1)',
-            'rgba(194, 41, 46, 1)',
-            'rgba(241, 211, 1, 1)'],
-        borderColor: [
-            'rgba(35, 87, 137, 1)',
-            'rgba(194, 41, 46, 1)',
-            'rgba(241, 211, 1, 1)'],
-        borderWidth: 1
-        }]
-    },
-    });
-
-        // Line Chart 1
-        const ctxLine1 = document.getElementById('lineChart1').getContext('2d');
-    const lineChart1 = new Chart(ctxLine1, {
-        type: 'line',
-        data: {
-            labels: ['2014', '2015', '2016', '2017'],
-            datasets: [{
-                data: [108000, 117000, 140000, 180000],
-                fill: false,
-                borderColor: 'rgba(194, 41, 46, 1)',
-                tension: 0.4
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: false,
-                    ticks: {
-                    font: {
-                        size: 7
-                    },
-                    color: '#000000' 
-                    }
-                },
-                x: {
-                    ticks: {
-                    font: {
-                        size: 7
-                    },
-                    color: '#000000'
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    display: false 
-                }
-            }
-        }
-    });
-
-    // Line Chart 2
-    const ctxLine2 = document.getElementById('lineChart2').getContext('2d');
-    const lineChart2 = new Chart(ctxLine2, {
-        type: 'line',
-        data: {
-            labels: ['Jan-14', 'Feb-14', 'Mar-14', 'Apr-14', 'May-14', 'Jun-14', 'Jul-14', 'Aug-14', 'Sep-14', 'Oct-14', 'Nov-14', 'Dec-14',
-                'Jan-15', 'Feb-15', 'Mar-15', 'Apr-15', 'May-15', 'Jun-15', 'Jul-15', 'Aug-15', 'Sep-15', 'Oct-15', 'Nov-15', 'Dec-15',
-                'Jan-16', 'Feb-16', 'Mar-16', 'Apr-16', 'May-16', 'Jun-16', 'Jul-16', 'Aug-16', 'Sep-16', 'Oct-16', 'Nov-16', 'Dec-16',
-                'Jan-17', 'Feb-17', 'Mar-17', 'Apr-17', 'May-17', 'Jun-17', 'Jul-17', 'Aug-17', 'Sep-17', 'Oct-17', 'Nov-17', 'Dec-17'
-            ],
-            datasets: [{
-                data: [
-                   1000, 2500, 3400, 2600, 5800, 6000, 8800, 14000, 15000, 16500, 19000, 20800,
-                   1200, 3500, 4000, 3300, 4900, 7100, 9000, 13500, 17600, 18200, 19700, 22900,
-                   2000, 3930, 5200, 5000, 5100, 8900, 10000, 14400, 18000, 18900, 22300, 24750,
-                   3100, 4930, 8900, 7000, 9100, 10000, 13000, 15000, 17600, 19900, 23500, 25100
-                ],
-                fill: false,
-                borderColor: 'rgba(194, 41, 46, 1)',
-                tension: 0.5,
-                pointRadius:0
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                    font: {
-                        size: 7
-                    },
-                    color: '#000000' 
-                    }
-                },
-                x: {
-                    ticks: {
-                    font: {
-                        size: 7
-                    },
-                    color: '#000000'
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    display: false 
-                }
-            }
-        }
-    });
-    
-// Initialize slide index and show the first slide
-let slideIndex = 0;
-    showSlides(slideIndex);
-
-    // Functions to move between slides and set the current slide
-    function moveSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    // Function to show the slides
-    function showSlides(n) {
-        let slides = document.querySelectorAll('.slide');
-        let dots = document.querySelectorAll('.dot');
-        if (n >= slides.length) {
-            slideIndex = 0;
-        }
-        if (n < 0) {
-            slideIndex = slides.length - 1;
-        }
-        slides.forEach((slide, index) => {
-            slide.style.display = (index === slideIndex) ? 'block' : 'none';
-        });
-        dots.forEach((dot, index) => {
-            dot.className = dot.className.replace(" active", "");
-            if (index === slideIndex) {
-                dot.className += " active";
-            }
-        });
-    }
-
-    window.moveSlides = moveSlides;
-    window.currentSlide = currentSlide;
-});
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
 </body>
+</html>

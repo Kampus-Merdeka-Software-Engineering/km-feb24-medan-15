@@ -14,10 +14,10 @@
   grid-template-columns: auto auto auto;
   flex-direction: row;
   align-items: center;
-  height:82px
+  height: 82px;
 }
 
-.home{
+.home {
   text-align: center;
   display: flex;
   padding: 20px;
@@ -54,41 +54,41 @@
   margin-left: 6px;
 }
 
-li{
+li {
   display: inline-block;
 }
 
-li a:hover{
+li a:hover {
   background-color: #235789;
 }
 
-menu li {
-list-style: none;
+.menu li {
+  list-style: none;
 }
 
 .menu li a {
-text-decoration: none;
-color: #FFFFFF;
-padding: 10px;
-border-radius: 50px;
-cursor: pointer;
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
 .menu li a i {
-margin: 2px;
-font-size: 24px;
-text-align: center;
+  margin: 2px;
+  font-size: 24px;
+  text-align: center;
 }
 
 .menu li span {
   font-size: 20px;
 }
 
-.search{
-text-align: center;
-display: flex;
-padding: 20px;
-justify-content: right;
+.search {
+  text-align: center;
+  display: flex;
+  padding: 20px;
+  justify-content: right;
 }
 
 form.example input[type=text] {
@@ -99,7 +99,7 @@ form.example input[type=text] {
   margin-left: 10px;
 }
 
-::placeholder{
+::placeholder {
   color: #ffffff;
 }
 
@@ -112,11 +112,27 @@ section {
   padding: 20px;
 }
 
-.content1{
+.content1 {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+}
+
+.content1 h2 {
+  font-weight: 400;
+  font-size: 35px;
+  font-family:urbanist;
+  text-align: center
+}
+
+.content1 p {
+  font-size: 10px;
+}
+
+.bold-value {
+  font-weight: bold;
+  font-size: 22px;
 }
 
 /* Float the columns side by side */
@@ -138,11 +154,12 @@ section {
   align-items: center;
 }
 
-.value{
+.value {
   text-align: center;
   padding: 0px 2px 0px 6px;
 }
-.card i{
+
+.card i {
   width: 40px;
   height: 100%;
   border-bottom-left-radius: 10px;
@@ -151,7 +168,7 @@ section {
   background-color: #f1d302;
 }
 
-.grid-container{
+.grid-container {
   grid-template-columns: auto 227px;
   grid-template-rows: auto;
   display: grid;
@@ -159,12 +176,12 @@ section {
   column-gap: 16px;
 }
 
-.grid1{
+.grid1 {
   display: grid;
   row-gap: 20px;
 }
 
-.content2{
+.content2 {
   display: flex;
   flex-wrap: wrap;
 }
@@ -189,12 +206,15 @@ section {
   flex-wrap: wrap;
 }
 
-#barChart{
+#barChart {
   display: block;
   margin: auto;
+  width: 343.69px;
+  height: 149.77px;
+  margin-top: 8px;
 }
 
-.pie1{
+.pie1 {
   font-weight: bold;
   font-size: 13px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -208,48 +228,43 @@ section {
   height: 197.96px;
 }
 
-.mr-0{
+.mr-0 {
   margin-right: 0;
 }
 
-.content3{
+.content3 {
   display: flex;
   flex-wrap: wrap;
 }
 
-.line1{
-font-weight: bold;
-font-size: 13px;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-padding: 16px;
-background-color: #ffffff;
-box-sizing: border-box;
-border-radius: 10px;
-text-align: center; 
-width: 495.85px;
-height: 200.29px;
-margin-right: 29px;
+.line1 {
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center; 
+  width: 495.85px;
+  height: 200.29px;
+  margin-right: 29px;
 }
 
-.line2{
-font-weight: bold;
-font-size: 13px;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-padding: 16px;
-background-color: #ffffff;
-box-sizing: border-box;
-border-radius: 10px;
-text-align: center; 
-width: 495.85px;
-height: 200.29px;
+.line2 {
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center; 
+  width: 495.85px;
+  height: 200.29px;
 }
 
-#lineChart1{
-  display: block;
-  margin: auto;
-}
-
-#lineChart2{
+#lineChart1, #lineChart2 {
   display: block;
   margin: auto;
 }
@@ -295,7 +310,7 @@ height: 200.29px;
 }
 
 /* Previous and Next button styles */
-/* .prev, .next {
+.prev, .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -320,7 +335,7 @@ height: 200.29px;
 
 .prev:hover, .next:hover {
   background-color: rgba(0, 0, 0, 0.8); 
-} */
+}
 
 /* Dot navigation styles */
 .dot-container {
@@ -412,14 +427,14 @@ td:nth-child(5) {
   width: inherit; /* Mewarisi lebar kolom dari th */
 }
 
-.filtering{
+.filtering {
   width: auto;
   height: auto;
   align-items: center;
   justify-content: space-between;
 }
 
-.filtering h2{
+.filtering h2 {
   background-color: #00882e;
   text-align: center;
   border-radius: 10px;
@@ -458,18 +473,24 @@ td:nth-child(5) {
   z-index: 1;
 }
 
-/* .dropdown-content a {
+/*.dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown-content a:active {background-color: #ffffff;}
+.dropdown-content a:active {
+  background-color: #ffffff;
+}
 
-.dropdown:active .dropdown-content {display: block;}
+.dropdown:active .dropdown-content {
+  display: block;
+}
 
-.dropdown:active .dropbtn {background-color: #ffffff;} */
+.dropdown:active .dropbtn {
+  background-color: #ffffff;
+}*/
 
 /* The container */
 .container {
@@ -541,7 +562,7 @@ td:nth-child(5) {
   transform: rotate(45deg);
 }
 
-.title{
+.title {
   position: relative;
   margin: 0 auto;
   width: 1200px;
@@ -574,57 +595,50 @@ footer {
 /* Responsiveness */
 @media (max-width: 1280px) {
   .navbar {
-      grid-template-columns: auto auto; /* Mengubah grid template menjadi dua kolom */
-      justify-content: center; /* Pusatkan item pada navbar */
+    grid-template-columns: auto auto;
+    justify-content: center;
   }
-  
-  .search,
-  .home {
-      padding: 10px; /* Padding yang lebih kecil untuk bagian pencarian dan beranda */
+
+  .search, .home {
+    padding: 10px;
   }
-  
+
   .search-box {
-      width: 200px; /* Lebar kotak pencarian yang lebih kecil */
+    width: 200px;
   }
-  
-  .content1,
-  .content2,
-  .content3 {
+
+  .content1, .content2, .content3 {
     justify-content: space-evenly;
     display: flex;
-    flex-wrap: wrap; /* Pusatkan konten */
+    flex-wrap: wrap;
   }
-  
+
   section {
-      padding: 10px; /* Padding yang lebih kecil untuk konten utama */
+    padding: 10px;
   }
-  
+
   .grid-container {
-      grid-template-columns: auto; /* Hanya satu kolom di grid container */
-      justify-content: center; /* Pusatkan grid container */
+    grid-template-columns: auto;
+    justify-content: center;
   }
-  
-  .grid1,
-  .pie,
-  .pie1 {
-      justify-content: center; /* Pusatkan konten di dalam grid */
+
+  .grid1, .pie, .pie1 {
+    justify-content: center;
   }
-  
-  .line1,
-  .line2 {
-      margin-right: 0; /* Hapus margin kanan pada line cards */
+
+  .line1, .line2 {
+    margin-right: 0;
   }
-  
+
   table {
-      width: 100%; /* Lebar tabel menjadi 100% */
+    width: 100%;
   }
-  
-  .container,
-  .dropdown {
-      margin: 10px 0; /* Ruang antara container dan dropdown */
+
+  .container, .dropdown {
+    margin: 10px 0;
   }
-  
+
   .dropdown-content {
-      width: 150px; /* Lebar dropdown */
+    width: 150px;
   }
-  }
+}  
