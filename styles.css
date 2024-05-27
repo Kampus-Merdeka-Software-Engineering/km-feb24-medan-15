@@ -5,643 +5,655 @@
     font-family: 'Urbanist', sans-serif;
   }
   
-  /* Navigation Bar styles */
-  .navbar {
-    background: #00882D; 
-    list-style-type: none;
-    text-align: center;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    flex-direction: row;
-    align-items: center;
-    height: 82px;
-  }
-  
-  .home {
-    text-align: center;
-    display: flex;
-    padding: 20px;
-  }
-  
-  /* Logo-brand styles */
-  .logo-brand {
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Logo styles */  
-  .logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .logo i {
-    font-size: 27px;
-    color: #00882E;
-  }
-  
-  /* Brand styles */
-  .brand {
-    font-family: 'Urbanist Extra Bold', sans-serif;
-    font-weight: 1000;
-    font-size: 27px;
-    color: #FFFFFF;
-    margin-left: 6px;
-  }
-  
-  li {
-    display: inline-block;
-  }
-  
-  li a:hover {
-    background-color: #235789;
-  }
-  
-  .menu li {
-    list-style: none;
-  }
-  
-  .menu li a {
-    text-decoration: none;
-    color: #FFFFFF;
-    padding: 10px;
-    border-radius: 50px;
-    cursor: pointer;
-  }
-  
-  .menu li a i {
-    margin: 2px;
-    font-size: 24px;
-    text-align: center;
-  }
-  
-  .menu li span {
-    font-size: 20px;
-  }
-  
-  .search {
-    text-align: center;
-    display: flex;
-    padding: 20px;
-    justify-content: right;
-  }
-  
-  form.example input[type=text] {
-    padding: 10px;
-    font-size: 20px;
-    background-color: #235789;
-    border-radius: 50px;
-    margin-left: 10px;
-  }
-  
-  ::placeholder {
-    color: #ffffff;
-  }
-  
-  /* Main content styles */
-  .main {
-    background-color: #ebe8e8;
-  }
-  
-  section {
-    padding: 20px;
-  }
-  
-  .content1 {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-  }
+/* Navigation Bar styles */
+.navbar {  
+  background: #00882D; 
+  list-style-type: none;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  flex-direction: row;
+  align-items: center;
+  height: 82px;
+}
 
-  .content1 h2 {
-    font-weight: 400;
-    font-size: 35px;
-    font-family:urbanist;
-    text-align: center
-  }
+.home {
+  text-align: center;
+  display: flex;
+  padding: 20px;
+}
 
-  .content1 p {
-    font-size: 10px;
-  }
+/* Logo-brand styles */
+.logo-brand {
+  display: flex;
+  align-items: center;
+}
+  
+/* Logo styles */  
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .bold-value {
-    font-weight: bold;
-    font-size: 22px;
-  }
+.logo i {
+  font-size: 27px;
+  color: #00882E;
+}
   
-  /* Float the columns side by side */
-  .column {
-    float: left;
-    width: 136px;
-    height: 58px;
-    padding: 0 10px;
-    flex-wrap: wrap;
-  }
-  
-  /* Style the counter cards */
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background-color: #ffffff;
-    box-sizing: border-box;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .card .value {
-    text-align: center;
-    font-size: 10px;
-    padding: 10px 10px 10px 10px;
-  }
-  
-  .card i {
-    width: 40px;
-    height: 100%;
-    font-size: 30px;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-    padding: 15px 0px 15px 15px;
-    background-color: #f1d302;
-  }
-  
-  .grid-container {
-    grid-template-columns: auto 227px;
-    grid-template-rows: auto;
-    display: grid;
-    padding: 20px;
-    column-gap: 16px;
-  }
-  
-  .grid1 {
-    display: grid;
-    row-gap: 20px;
-  }
-  
-  .content2 {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  /* Style the bar chart cards */
-  .bar {
-    font-weight: bold;
-    font-size: 13px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px;
-    background-color: #ffffff;
-    box-sizing: border-box;
-    border-radius: 10px;
-    text-align: center; 
-    margin-right: 19px;
-    width: 407.15px;
-    height: 197.96px;
-  }
-  
-  .pie {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  #barChart {
-    display: block;
-    margin: auto;
-    width: 343.69px;
-    height: 149.777 px;
-    margin-top: 1px;
-  }
-  
-  .pie1 {
-    font-weight: bold;
-    font-size: 13px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 13px;
-    background-color: #ffffff;
-    box-sizing: border-box;
-    border-radius: 10px;
-    text-align: center; 
-    margin-right: 13px;
-    width: 189.75px;
-    height: 197.96px;
-  }
-  
-  .mr-0 {
-    margin-right: 0;
-  }
-  
-  .content3 {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .line1 {
-    font-weight: bold;
-    font-size: 13px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px;
-    background-color: #ffffff;
-    box-sizing: border-box;
-    border-radius: 10px;
-    text-align: center; 
-    width: 495.85px;
-    height: 200.29px;
-    margin-right: 29px;
-  }
-  
-  .line2 {
-    font-weight: bold;
-    font-size: 13px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px;
-    background-color: #ffffff;
-    box-sizing: border-box;
-    border-radius: 10px;
-    text-align: center; 
-    width: 495.85px;
-    height: 200.29px;
-  }
-  
-  #lineChart1, #lineChart2 {
-    display: block;
-    margin: auto;
-  }
-  
-  /* Ensure content4 container maintains its size */
-  .content4 {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px;
-    background-color: rgba(82, 82, 82, 0.15);
-    box-sizing: border-box;
-    text-align: center;
-    margin-right: 30px;
-    border-radius: 10px;
-    position: relative; 
-    font-family: 'Arial', Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  /* Slider container */
-  .slider {
-    position: relative;
-    width: 100%;
-    height: 100%; /* Allow slider to take the full height of content4 */
-    overflow: hidden;
-  }
-  
-  /* Slide items */
-  .slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .slide {
-    min-width: 100%;
-    box-sizing: border-box;
-    height: 100%; /* Ensure each slide takes the full height */
-    display: flex;
-    align-items: center; /* Vertically center the content of each slide */
-    justify-content: center; /* Horizontally center the content of each slide */
-  }
-  
-  /* Previous and Next button styles */
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 24px; 
-    padding: 0 12px; 
-    background-color: rgba(0, 0, 0, 0.5); 
-    transition: background-color 0.3s ease;
-    border: none; 
-    outline: none; 
-    z-index: 1; 
-  }
-  
-  .prev {
-    left: 10px; 
-  }
-  
-  .next {
-    right: 10px; 
-  }
-  
-  .prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8); 
-  }
-  
-  /* Dot navigation styles */
-  .dot-container {
-    text-align: center;
-    position: relative;
-    top: 5px;
-  }
-  
-  .dot {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #b8b4b4;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-  }
-  
-  .dot.active {
-    background-color: #767474;
-  }
-  
-  .content5 {
-    position: relative;
-    margin: 0 auto;
-    width: 1200px;
-    text-align: center;
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: #c2292e;
-    padding: 10px;
-    font-size: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-  
-  .content6 {
-    margin: 0 auto; 
-    width: 1022px; 
-    text-align: center; 
-  }
-  
-  table {
-    font-family: "Arial", Helvetica, sans-serif;
-    border-spacing: 9px; 
-    height: auto; 
-    margin: 0 auto; 
-    margin-top: 15px;
-  }
-  
-  th {
-    font-weight: bold; 
-    color: #000000; 
-  }
-  
-  td {
-    text-align: center; 
-    background-color: #FFFFFF; 
-    border-radius: 5px; 
-    border-spacing: 0; 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
-  }
-  
-  th:nth-child(1) {
-    width: 172px;
-  }
-  
-  th:nth-child(2) {
-    width: 137px; 
-  }
-  
-  th:nth-child(3) {
-    width: 238px;
-  }
-  
-  th:nth-child(4) {
-    width: 358.5px; 
-  }
-  
-  th:nth-child(5) {
-    width: 108px; 
-  }
-  
-  td:nth-child(1),
-  td:nth-child(2),
-  td:nth-child(3),
-  td:nth-child(4),
-  td:nth-child(5) {
-    width: inherit; /* Mewarisi lebar kolom dari th */
-  }
-  
-  .filtering {
-    width: auto;
-    height: auto;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .filtering h2 {
-    background-color: #00882e;
-    text-align: center;
-    border-radius: 10px;
-    margin-top: 9px;
-    margin-bottom: 6px;
-    width: 175px;
-    color: #ffffff;
-    padding: 4px;
-  }
-  
-  .dropbtn {
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    margin-top: 9px;
-    margin-bottom: 6px;
-    width: 184px;
-    height: 45px;
-    background-color: #ffffff;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /*.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:active {
-    background-color: #ffffff;
-  }
-  
-  .dropdown:active .dropdown-content {
-    display: block;
-  }
-  
-  .dropdown:active .dropbtn {
-    background-color: #ffffff;
-  }*/
-  
-  /* The container */
-  .container {
-    font-family: "Arial", Helvetica, sans-serif;
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: bold;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  
-  /* Create a custom checkbox */
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: white;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .container:active input ~ .checkmark {
-    background-color: black;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .container input:checked ~ .checkmark {
-    background-color: black;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .container input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .container .checkmark:after {
-    left: 6.5px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  
-  .title {
-    position: relative;
-    margin: 0 auto;
-    width: 1200px;
-    text-align: center;
-    font-size: 25px;
-    padding: 10px;
-    color: #FFFFFF;
-    background-color: #235789;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
+/* Brand styles */
+.brand {
+  font-family: 'Urbanist Extra Bold', sans-serif;
+  font-weight: 1000;
+  font-size: 27px;
+  color: #FFFFFF;
+  margin-left: 6px;
+}
 
-  .content7{
-    position: relative;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    height: 231px;
-    width: 100%;
-    background-color: #d9d9d9;
-    margin-top: 15px;
-  }
+li {
+  display: inline-block;
+}
+
+li a:hover {
+  background-color: #235789;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.menu li a i {
+  margin: 2px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.menu li span {
+  font-size: 20px;
+}
+
+.search {
+  text-align: center;
+  display: flex;
+  padding: 20px;
+  justify-content: right;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 20px;
+  background-color: #235789;
+  border-radius: 50px;
+  margin-left: 10px;
+}
+
+::placeholder {
+  color: #ffffff;
+}
+
+/* Main content styles */
+.main {
+  background-color: #ebe8e8;
+}
+
+section {
+  padding: 20px;
+}
+
+.content1 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.content1 h2 {
+  font-weight: 400;
+  font-size: 35px;
+  font-family:urbanist;
+  text-align: center
+}
+
+.bold-value {
+  font-weight: bold;
+  font-size: 22px;
+}
   
-  footer {
+/* Float the columns side by side */
+.column {
+  float: left;
+  height: 58px;
+  padding: 0 10px;
+  flex-wrap: wrap;
+}
+  
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.card .value {
+  text-align: center;
+  font-size: 10px;
+  padding: 10px 10px 10px 10px;
+}
+
+.card i {
+  width: 40px;
+  height: 100%;
+  font-size: 30px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 15px 0px 15px 15px;
+  background-color: #f1d302;
+}
+
+.grid-container {
+  grid-template-columns: auto 227px;
+  grid-template-rows: auto;
+  display: grid;
+  padding: 20px;
+  column-gap: 16px;
+}
+
+.grid1 {
+  display: grid;
+  row-gap: 20px;
+}
+
+.content2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+  
+/* Style the bar chart cards */
+.bar {
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center; 
+  margin-right: 19px;
+  width: 407.15px;
+  height: 197.96px;
+}
+
+.pie {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#barChart {
+  display: block;
+  margin: auto;
+}
+
+.pie1 {
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 13px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center; 
+  margin-right: 13px;
+  width: 189.75px;
+  height: 197.96px;
+}
+
+#pieChart1, #pieChart2, #pieChart3{
+  padding: 10px;
+}
+
+.mr-0 {
+  margin-right: 0;
+}
+
+.content3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.line1 {
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center; 
+  width: 495.85px;
+  height: 200.29px;
+  margin-right: 29px;
+}
+
+.line2 {
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center; 
+  width: 495.85px;
+  height: 200.29px;
+}
+
+#lineChart1, #lineChart2 {
+  display: block;
+  margin: auto;
+}
+  
+/* Ensure content4 container maintains its size */
+.content4 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  background-color: rgba(82, 82, 82, 0.15);
+  box-sizing: border-box;
+  text-align: center;
+  margin-right: 30px;
+  border-radius: 10px;
+  position: relative; 
+  font-family: 'Arial', Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+  
+/* Slider container */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Allow slider to take the full height of content4 */
+  overflow: hidden;
+}
+  
+/* Slide items */
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  height: 100%; /* Ensure each slide takes the full height */
+  display: flex;
+  align-items: center; /* Vertically center the content of each slide */
+  justify-content: center; /* Horizontally center the content of each slide */
+}
+
+/* Previous and Next button styles */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 24px; 
+  padding: 0 12px; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  transition: background-color 0.3s ease;
+  border: none; 
+  outline: none; 
+  z-index: 1; 
+}
+
+.prev {
+  left: 10px; 
+}
+
+.next {
+  right: 10px; 
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8); 
+}
+  
+/* Dot navigation styles */
+.dot-container {
+  text-align: center;
+  position: relative;
+  top: 5px;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #b8b4b4;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #767474;
+}
+
+.content5 {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #c2292e;
+  padding: 10px;
+  font-size: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.content6 {
+  margin: 0 auto; 
+  width: 1022px; 
+  text-align: center; 
+}
+
+table {
+  font-family: "Arial", Helvetica, sans-serif;
+  border-spacing: 9px; 
+  height: auto; 
+  margin: 0 auto; 
+  margin-top: 15px;
+}
+
+th {
+  font-weight: bold; 
+  color: #000000; 
+}
+
+td {
+  text-align: center; 
+  background-color: #FFFFFF; 
+  border-radius: 5px; 
+  border-spacing: 0; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+th:nth-child(1) {
+  width: 172px;
+}
+
+th:nth-child(2) {
+  width: 137px; 
+}
+
+th:nth-child(3) {
+  width: 238px;
+}
+
+th:nth-child(4) {
+  width: 358.5px; 
+}
+
+th:nth-child(5) {
+  width: 108px; 
+}
+
+td:nth-child(1),
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5) {
+  width: inherit; /* Mewarisi lebar kolom dari th */
+}
+
+.filtering {
+  width: auto;
+  height: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filtering h2 {
+  background-color: #00882e;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 9px;
+  margin-bottom: 6px;
+  width: 175px;
+  color: #ffffff;
+  padding: 4px;
+}
+
+.dropbtn {
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  margin-top: 9px;
+  margin-bottom: 6px;
+  width: 184px;
+  height: 45px;
+  background-color: #ffffff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+  
+/* The container */
+.container {
+  font-family: "Arial", Helvetica, sans-serif;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+}
+
+/* On mouse-over, add a grey background color */
+.container:active input ~ .checkmark {
+  background-color: black;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: black;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 6.5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.title {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  text-align: center;
+  font-size: 25px;
+  padding: 10px;
+  color: #FFFFFF;
+  background-color: #235789;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.content7{
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  height: 175px;
+  width: 100%;
+  background-color: #d9d9d9;
+  margin-top: 40px;
+}
+
+/* Add these styles for content7 and team members */
+.grid2 {
+  display: grid;
+  row-gap: 20px;
+  column-gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 45px;
+}
+
+.team-member {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.team-member img {
+  width: 150px;
+  height: 190px;
+  object-fit: cover;
+  margin-bottom: -4px;
+  margin-top: -30px;
+}
+
+.team-member p {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 7px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 0px 20px;
+}
+
+footer {
     background-color: #021780 !important;
     color: white;
     text-align: center;
     padding: 12px;
   }
   
-  /* Responsiveness */
-  @media (max-width: 1280px) {
-    .navbar {
-      grid-template-columns: auto auto;
-      justify-content: center;
-    }
-  
-    .search, .home {
-      padding: 10px;
-    }
-  
-    .search-box {
-      width: 200px;
-    }
-  
-    .content1, .content2, .content3 {
-      justify-content: space-evenly;
-      display: flex;
-      flex-wrap: wrap;
-    }
-  
-    section {
-      padding: 10px;
-    }
-  
-    .grid-container {
-      grid-template-columns: auto;
-      justify-content: center;
-    }
-  
-    .grid1, .pie, .pie1 {
-      justify-content: center;
-    }
-  
-    .line1, .line2 {
-      margin-right: 0;
-    }
-  
-    table {
-      width: 100%;
-    }
-  
-    .container, .dropdown {
-      margin: 10px 0;
-    }
-  
-    .dropdown-content {
-      width: 150px;
-    }
+/* Responsiveness */
+@media (max-width: 1280px) {
+  .navbar {
+    grid-template-columns: auto auto;
+    justify-content: center;
   }
+
+  .search, .home {
+    padding: 10px;
+  }
+
+  .search-box {
+    width: 200px;
+  }
+
+  .content1, .content2, .content3 {
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  section {
+    padding: 10px;
+  }
+
+  .grid-container {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+
+  .grid1, .pie, .pie1 {
+    justify-content: center;
+  }
+
+  .line1, .line2 {
+    margin-right: 0;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .container, .dropdown {
+    margin: 10px 0;
+  }
+
+  .dropdown-content {
+    width: 150px;
+  }
+}
+
+  
