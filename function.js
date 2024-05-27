@@ -129,9 +129,25 @@ document.addEventListener("DOMContentLoaded", function() {
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        datalabels: {
+                            formatter: (value, context) => {
+                                const dataset = context.chart.data.datasets[0];
+                                const total = dataset.data.reduce((sum, currentValue) => sum + currentValue, 0);
+                                const percentage = (value / total * 100).toFixed(2) + '%';
+                                return percentage;
+                            },
+                            color: '#000000',
+                            font: {
+                                weight: 'bold',
+                                size: 10
+                            },
+                            anchor: 'center',
+                            align: 'center'
                         }
                     }
-                }
+                },
+                plugins: [ChartDataLabels] // Activate the plugin
             });
 
             // Pie chart for segment sales
@@ -162,9 +178,25 @@ document.addEventListener("DOMContentLoaded", function() {
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        datalabels: {
+                            formatter: (value, context) => {
+                                const dataset = context.chart.data.datasets[0];
+                                const total = dataset.data.reduce((sum, currentValue) => sum + currentValue, 0);
+                                const percentage = (value / total * 100).toFixed(2) + '%';
+                                return percentage;
+                            },
+                            color: '#000000',
+                            font: {
+                                weight: 'bold',
+                                size: 10
+                            },
+                            anchor: 'center',
+                            align: 'center'
                         }
                     }
-                }
+                },
+                plugins: [ChartDataLabels] // Activate the plugin
             });
 
             // Pie chart for category sales
@@ -195,9 +227,25 @@ document.addEventListener("DOMContentLoaded", function() {
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        datalabels: {
+                            formatter: (value, context) => {
+                                const dataset = context.chart.data.datasets[0];
+                                const total = dataset.data.reduce((sum, currentValue) => sum + currentValue, 0);
+                                const percentage = (value / total * 100).toFixed(2) + '%';
+                                return percentage;
+                            },
+                            color: '#000000',
+                            font: {
+                                weight: 'bold',
+                                size: 10
+                            },
+                            anchor: 'center',
+                            align: 'center'
                         }
                     }
-                }
+                },
+                plugins: [ChartDataLabels] // Activate the plugin
             });
 
             // Line chart for yearly sales
@@ -243,56 +291,103 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
 
-            // Line chart for monthly sales
-            const monthlyLabels = data.monthlySales.map(item => item.Month);
-            const monthlySalesData2014 = data.monthlySales.map(item => item.Sales['2014']);
-            const monthlySalesData2015 = data.monthlySales.map(item => item.Sales['2015']);
-            const monthlySalesData2016 = data.monthlySales.map(item => item.Sales['2016']);
-            const monthlySalesData2017 = data.monthlySales.map(item => item.Sales['2017']);
+            // Line chart for monthly sales (4 line)
+            // const monthlyLabels = data.monthlySales.map(item => item.Month);
+            // const monthlySalesData2014 = data.monthlySales.map(item => item.Sales['2014']);
+            // const monthlySalesData2015 = data.monthlySales.map(item => item.Sales['2015']);
+            // const monthlySalesData2016 = data.monthlySales.map(item => item.Sales['2016']);
+            // const monthlySalesData2017 = data.monthlySales.map(item => item.Sales['2017']);
+
+            // const lineChart2 = new Chart(ctxLine2, {
+            //     type: 'line',
+            //     data: {
+            //         labels: monthlyLabels,
+            //         datasets: [
+            //             {
+            //                 label: '2014',
+            //                 data: monthlySalesData2014,
+            //                 fill: false,
+            //                 borderColor: 'rgba(35, 87, 137, 1)',
+            //                 tension: 0.5,
+            //                 pointRadius: 0
+            //             },
+            //             {
+            //                 label: '2015',
+            //                 data: monthlySalesData2015,
+            //                 fill: false,
+            //                 borderColor: 'rgba(194, 41, 46, 1)',
+            //                 tension: 0.5,
+            //                 pointRadius: 0
+            //             },
+            //             {
+            //                 label: '2016',
+            //                 data: monthlySalesData2016,
+            //                 fill: false,
+            //                 borderColor: 'rgba(241, 211, 1, 1)',
+            //                 tension: 0.5,
+            //                 pointRadius: 0
+            //             },
+            //             {
+            //                 label: '2017',
+            //                 data: monthlySalesData2017,
+            //                 fill: false,
+            //                 borderColor: 'rgba(0, 136, 46, 1)',
+            //                 tension: 0.5,
+            //                 pointRadius: 0
+            //             }
+            //         ]
+            //     },
+            //     options: {
+            //         scales: {
+            //             y: {
+            //                 beginAtZero: true,
+            //                 ticks: {
+            //                     font: {
+            //                         size: 7
+            //                     },
+            //                     color: '#000000'
+            //                 }
+            //             },
+            //             x: {
+            //                 ticks: {
+            //                     font: {
+            //                         size: 7
+            //                     },
+            //                     color: '#000000'
+            //                 }
+            //             }
+            //         },
+            //         plugins: {
+            //             legend: {
+            //                 display: false
+            //             }
+            //         }
+            //     }
+            // });
+
+            //Line Chart Monthly Sales(satu line)
+            const monthlySaless = data.monthlySaless;
+
+            // Prepare labels and datasets for line chart
+            const labels = monthlySaless.map(item => `${item.Month} ${item.Year}`);
+            const salesData = monthlySaless.map(item => item.Sales);
 
             const lineChart2 = new Chart(ctxLine2, {
                 type: 'line',
                 data: {
-                    labels: monthlyLabels,
-                    datasets: [
-                        {
-                            label: '2014',
-                            data: monthlySalesData2014,
-                            fill: false,
-                            borderColor: 'rgba(35, 87, 137, 1)',
-                            tension: 0.5,
-                            pointRadius: 0
-                        },
-                        {
-                            label: '2015',
-                            data: monthlySalesData2015,
-                            fill: false,
-                            borderColor: 'rgba(194, 41, 46, 1)',
-                            tension: 0.5,
-                            pointRadius: 0
-                        },
-                        {
-                            label: '2016',
-                            data: monthlySalesData2016,
-                            fill: false,
-                            borderColor: 'rgba(241, 211, 1, 1)',
-                            tension: 0.5,
-                            pointRadius: 0
-                        },
-                        {
-                            label: '2017',
-                            data: monthlySalesData2017,
-                            fill: false,
-                            borderColor: 'rgba(0, 136, 46, 1)',
-                            tension: 0.5,
-                            pointRadius: 0
-                        }
-                    ]
+                    labels: labels,
+                    datasets: [{
+                        label: 'Monthly Sales',
+                        data: salesData,
+                        fill: false,
+                        borderColor: 'rgba(194, 41, 46, 1)',
+                        tension: 0.4
+                    }]
                 },
                 options: {
                     scales: {
                         y: {
-                            beginAtZero: true,
+                            beginAtZero: false,
                             ticks: {
                                 font: {
                                     size: 7
@@ -311,7 +406,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     },
                     plugins: {
                         legend: {
-                            display: false
+                            display: false,
+                            position: 'top'
                         }
                     }
                 }
