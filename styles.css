@@ -361,7 +361,7 @@ section {
 .content5 {
   position: relative;
   margin: 0 auto;
-  width: 1200px;
+  max-width: 1200px;
   text-align: center;
   font-weight: bold;
   color: #FFFFFF;
@@ -373,58 +373,68 @@ section {
 }
 
 .content6 {
-  margin: 0 auto; 
-  width: 1022px; 
-  text-align: center; 
+  margin: 0 auto;
+  width: 95%; /* Mengubah lebar kontainer menjadi 95% dari lebar layar */
+  text-align: center;
 }
 
 table {
   font-family: "Arial", Helvetica, sans-serif;
-  border-spacing: 9px; 
-  height: auto; 
-  margin: 0 auto; 
+  border-collapse: collapse;
+  margin: 0 auto;
   margin-top: 15px;
+  width: 100%; /* Buat tabel mengisi lebar kontainer */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
 }
 
 th {
-  font-weight: bold; 
-  color: #000000; 
+  background-color: #f4f4f4;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 td {
-  text-align: center; 
-  background-color: #FFFFFF; 
-  border-radius: 5px; 
-  border-spacing: 0; 
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  background-color: #fff;
+  color: #555;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-th:nth-child(1) {
-  width: 172px;
+td:hover {
+  background-color: #f1f1f1;
 }
 
-th:nth-child(2) {
-  width: 137px; 
+/* Mengatur lebar kolom */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 250px; /* Lebih lebar untuk Order ID */
 }
 
-th:nth-child(3) {
-  width: 238px;
+#pagination {
+  margin-top: 15px;
+  text-align: center;
 }
 
-th:nth-child(4) {
-  width: 358.5px; 
+#pagination a {
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #000;
+  background-color: #f0f0f0;
+  border-radius: 5px;
 }
 
-th:nth-child(5) {
-  width: 108px; 
-}
-
-td:nth-child(1),
-td:nth-child(2),
-td:nth-child(3),
-td:nth-child(4),
-td:nth-child(5) {
-  width: inherit; /* Mewarisi lebar kolom dari th */
+#pagination a.active {
+  font-weight: bold;
+  background-color: #c2292e;
+  color: #fff;
 }
 
 .filtering {

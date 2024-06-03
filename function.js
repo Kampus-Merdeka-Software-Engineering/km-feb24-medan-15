@@ -291,81 +291,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
 
-            // Line chart for monthly sales (4 line)
-            // const monthlyLabels = data.monthlySales.map(item => item.Month);
-            // const monthlySalesData2014 = data.monthlySales.map(item => item.Sales['2014']);
-            // const monthlySalesData2015 = data.monthlySales.map(item => item.Sales['2015']);
-            // const monthlySalesData2016 = data.monthlySales.map(item => item.Sales['2016']);
-            // const monthlySalesData2017 = data.monthlySales.map(item => item.Sales['2017']);
-
-            // const lineChart2 = new Chart(ctxLine2, {
-            //     type: 'line',
-            //     data: {
-            //         labels: monthlyLabels,
-            //         datasets: [
-            //             {
-            //                 label: '2014',
-            //                 data: monthlySalesData2014,
-            //                 fill: false,
-            //                 borderColor: 'rgba(35, 87, 137, 1)',
-            //                 tension: 0.5,
-            //                 pointRadius: 0
-            //             },
-            //             {
-            //                 label: '2015',
-            //                 data: monthlySalesData2015,
-            //                 fill: false,
-            //                 borderColor: 'rgba(194, 41, 46, 1)',
-            //                 tension: 0.5,
-            //                 pointRadius: 0
-            //             },
-            //             {
-            //                 label: '2016',
-            //                 data: monthlySalesData2016,
-            //                 fill: false,
-            //                 borderColor: 'rgba(241, 211, 1, 1)',
-            //                 tension: 0.5,
-            //                 pointRadius: 0
-            //             },
-            //             {
-            //                 label: '2017',
-            //                 data: monthlySalesData2017,
-            //                 fill: false,
-            //                 borderColor: 'rgba(0, 136, 46, 1)',
-            //                 tension: 0.5,
-            //                 pointRadius: 0
-            //             }
-            //         ]
-            //     },
-            //     options: {
-            //         scales: {
-            //             y: {
-            //                 beginAtZero: true,
-            //                 ticks: {
-            //                     font: {
-            //                         size: 7
-            //                     },
-            //                     color: '#000000'
-            //                 }
-            //             },
-            //             x: {
-            //                 ticks: {
-            //                     font: {
-            //                         size: 7
-            //                     },
-            //                     color: '#000000'
-            //                 }
-            //             }
-            //         },
-            //         plugins: {
-            //             legend: {
-            //                 display: false
-            //             }
-            //         }
-            //     }
-            // });
-
-            //Line Chart Monthly Sales(satu line)
+            // Line Chart Monthly Sales (single line)
             const monthlySaless = data.monthlySaless;
 
             // Prepare labels and datasets for line chart
@@ -412,6 +338,53 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
             });
+
+            const ordersPerPage = 20;
+            const recentOrders = data.recentorder;
+            let currentPage = 1;
+
+            function renderTable(page) {
+                const start = (page - 1) * ordersPerPage;
+                const end = start + ordersPerPage;
+                const ordersToDisplay = recentOrders.slice(start, end);
+
+                const tbody = document.querySelector('#recent-orders-table tbody');
+                tbody.innerHTML = '';
+
+                ordersToDisplay.forEach(order => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${order["Order ID"]}</td>
+                        <td>${order["Order Date"]}</td>
+                        <td>${order["Customer Name"]}</td>
+                        <td>${order["Product Name"]}</td>
+                        <td>$${order.Sales.toFixed(2)}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+                renderPagination(page);
+            }
+
+            function renderPagination(page) {
+                const totalPages = Math.ceil(recentOrders.length / ordersPerPage);
+                const pagination = document.getElementById('pagination');
+                pagination.innerHTML = '';
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const pageLink = document.createElement('a');
+                    pageLink.href = '#';
+                    pageLink.innerText = i;
+                    pageLink.className = i === page ? 'active' : '';
+                    pageLink.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        currentPage = i;
+                        renderTable(currentPage);
+                    });
+                    pagination.appendChild(pageLink);
+                }
+            }
+            renderTable(currentPage);
             console.log(data);
         })
         .catch(error => console.error('Error loading JSON data:', error));
