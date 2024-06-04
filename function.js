@@ -251,24 +251,27 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (period === 'year') {
                     key = date.getFullYear();
                 } else if (period === 'month') {
-                    key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+                    const month = date.getMonth() + 1;
+                    key = `${date.getFullYear()}-${String(month).padStart(2, '0')}`;
                 }
-                if (!acc[key]) {
-                    acc[key] = 0;
+        
+                if (!isNaN(date.getTime())) {
+                    if (!acc[key]) {
+                        acc[key] = 0;
+                    }
+                    acc[key] += item.Sales;
                 }
-                acc[key] += item.Sales;
                 return acc;
             }, {});
-
+        
             const labels = Object.keys(salesData).sort();
             const dataValues = labels.map(label => salesData[label]);
-
-            // Log the labels and dataValues for debugging
-            console.log(`Labels for ${period}:`, labels);
-            console.log(`Data values for ${period}:`, dataValues);
-
+        
+            console.log(`Labels for ${period}:`, labels); 
+            console.log(`Data values for ${period}:`, dataValues); 
+        
             let chart;
-
+        
             if (ctx === ctxLine1 && lineChart1) {
                 lineChart1.destroy();
                 chart = lineChart1;
@@ -276,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 lineChart2.destroy();
                 chart = lineChart2;
             }
-
+        
             chart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -310,13 +313,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
             });
-
+        
             if (ctx === ctxLine1) {
                 lineChart1 = chart;
             } else if (ctx === ctxLine2) {
                 lineChart2 = chart;
             }
         }
+        
 
         // Function to update filtered data and all charts
         function updateFilteredData() {
