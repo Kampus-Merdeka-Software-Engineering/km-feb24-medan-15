@@ -1,14 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Smooth scrolling for navigation links
     const navbarLinks = document.querySelectorAll('.navbar a');
-
     navbarLinks.forEach(navbarLink => {
         navbarLink.addEventListener('click', function(e) {
             e.preventDefault();
-
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
-
             if (targetSection) {
                 window.scrollTo({
                     top: targetSection.offsetTop,
@@ -51,294 +48,285 @@ document.addEventListener("DOMContentLoaded", function() {
     const ctxLine1 = document.getElementById('lineChart1').getContext('2d');
     const ctxLine2 = document.getElementById('lineChart2').getContext('2d');
 
+    let barChart, pieChart1, pieChart2, pieChart3, lineChart1, lineChart2;
+
     fetch('data.json')
         .then(response => response.json())
         .then(data => {
-            // Bar chart for city sales
-            const cityLabels = data.citySales.map(item => item.City);
-            const citySalesData = data.citySales.map(item => item.Sales);
+            const citySalesData = data.citySales;
+            const regionSalesData = data.regionSales;
+            const segmentSalesData = data.segmentSales;
+            const categorySalesData = data.categorySales;
+            const yearlySalesData = data.yearlySales;
+            const monthlySalesData = data.monthlySales;
 
-            const barChart = new Chart(ctxBar, {
-                type: 'bar',
-                data: {
-                    labels: cityLabels,
-                    datasets: [{
-                        data: citySalesData,
-                        backgroundColor: 'rgba(0, 136, 46, 1)',
-                        borderColor: 'rgba(0, 136, 46, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                font: {
-                                    size: 7
-                                },
-                                color: '#000000'
+            // Function to get selected filters
+            function getSelectedFilters() {
+                const categoryCheckboxes = document.querySelectorAll('.filter:nth-child(2) input[type="checkbox"]');
+                const segmentCheckboxes = document.querySelectorAll('.filter:nth-child(3) input[type="checkbox"]');
+                const shipModeCheckboxes = document.querySelectorAll('.filter:nth-child(4) input[type="checkbox"]');
+
+                const selectedCategories = Array.from(categoryCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                const selectedSegments = Array.from(segmentCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                const selectedShipModes = Array.from(shipModeCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                return { selectedCategories, selectedSegments, selectedShipModes };
+            }
+
+            // Function to filter data
+            function filterData(data) {
+                const { selectedCategories, selectedSegments, selectedShipModes } = getSelectedFilters();
+                return data.filter(item => {
+                    return selectedCategories.includes(item.Category) &&
+                           selectedSegments.includes(item.Segment) &&
+                           selectedShipModes.includes(item["Ship Mode"]);
+                });
+            }
+
+            // Function to update bar chart
+            function updateBarChart(filteredData) {
+                const citySales = filteredData.reduce((acc, item) => {
+                    if (!acc[item.City]) {
+                        acc[item.City] = 0;
+                    }
+                    acc[item.City] += item.Sales;
+                    return acc;
+                }, {});
+
+                const sortedCities = Object.entries(citySales).sort((a, b) => b[1] - a[1]).slice(0, 5);
+                const cityLabels = sortedCities.map(item => item[0]);
+                const citySalesData = sortedCities.map(item => item[1]);
+
+                if (barChart) {
+                    barChart.destroy();
+                }
+
+                barChart = new Chart(ctxBar, {
+                    type: 'bar',
+                    data: {
+                        labels: cityLabels,
+                        datasets: [{
+                            data: citySalesData,
+                            backgroundColor: 'rgba(0, 136, 46, 1)',
+                            borderColor: 'rgba(0, 136, 46, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    font: {
+                                        size: 7
+                                    },
+                                    color: '#000000'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    maxRotation: 0,
+                                    minRotation: 0,
+                                    font: {
+                                        size: 7
+                                    },
+                                    color: '#000000'
+                                }
                             }
                         },
-                        x: {
-                            ticks: {
-                                maxRotation: 0,
-                                minRotation: 0,
-                                font: {
-                                    size: 7
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Function to update pie chart
+            function updatePieChart(ctx, filteredData, key) {
+                const salesData = filteredData.reduce((acc, item) => {
+                    if (!acc[item[key]]) {
+                        acc[item[key]] = 0;
+                    }
+                    acc[item[key]] += item.Sales;
+                    return acc;
+                }, {});
+
+                const labels = Object.keys(salesData);
+                const dataValues = Object.values(salesData);
+
+                let chart;
+
+                if (ctx === ctxPie1 && pieChart1) {
+                    pieChart1.destroy();
+                    chart = pieChart1;
+                } else if (ctx === ctxPie2 && pieChart2) {
+                    pieChart2.destroy();
+                    chart = pieChart2;
+                } else if (ctx === ctxPie3 && pieChart3) {
+                    pieChart3.destroy();
+                    chart = pieChart3;
+                }
+
+                chart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: dataValues,
+                            backgroundColor: [
+                                'rgba(35, 87, 137, 1)',
+                                'rgba(194, 41, 46, 1)',
+                                'rgba(241, 211, 1, 1)',
+                                'rgba(0, 136, 46, 1)'
+                            ],
+                            borderColor: [
+                                'rgba(35, 87, 137, 1)',
+                                'rgba(194, 41, 46, 1)',
+                                'rgba(241, 211, 1, 1)',
+                                'rgba(0, 136, 46, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            datalabels: {
+                                formatter: (value, context) => {
+                                    const dataset = context.chart.data.datasets[0];
+                                    const total = dataset.data.reduce((sum, currentValue) => sum + currentValue, 0);
+                                    const percentage = (value / total * 100).toFixed(2) + '%';
+                                    return percentage;
                                 },
-                                color: '#000000'
+                                color: '#000000',
+                                font: {
+                                    weight: 'bold',
+                                    size: 10
+                                },
+                                anchor: 'center',
+                                align: 'center'
                             }
                         }
                     },
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    }
+                    plugins: [ChartDataLabels]
+                });
+
+                if (ctx === ctxPie1) {
+                    pieChart1 = chart;
+                } else if (ctx === ctxPie2) {
+                    pieChart2 = chart;
+                } else if (ctx === ctxPie3) {
+                    pieChart3 = chart;
                 }
-            });
+            }
 
-            // Pie chart for region sales
-            const regionLabels = data.regionSales.map(item => item.Region);
-            const regionSalesData = data.regionSales.map(item => item.Sales);
-
-            const pieChart1 = new Chart(ctxPie1, {
-                type: 'pie',
-                data: {
-                    labels: regionLabels,
-                    datasets: [{
-                        data: regionSalesData,
-                        backgroundColor: [
-                            'rgba(35, 87, 137, 1)',
-                            'rgba(194, 41, 46, 1)',
-                            'rgba(241, 211, 1, 1)',
-                            'rgba(0, 136, 46, 1)'
-                        ],
-                        borderColor: [
-                            'rgba(35, 87, 137, 1)',
-                            'rgba(194, 41, 46, 1)',
-                            'rgba(241, 211, 1, 1)',
-                            'rgba(0, 136, 46, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        datalabels: {
-                            formatter: (value, context) => {
-                                const dataset = context.chart.data.datasets[0];
-                                const total = dataset.data.reduce((sum, currentValue) => sum + currentValue, 0);
-                                const percentage = (value / total * 100).toFixed(2) + '%';
-                                return percentage;
-                            },
-                            color: '#000000',
-                            font: {
-                                weight: 'bold',
-                                size: 10
-                            },
-                            anchor: 'center',
-                            align: 'center'
-                        }
+            // Function to update line chart
+            function updateLineChart(ctx, filteredData, dateKey, groupBy) {
+                const salesData = filteredData.reduce((acc, item) => {
+                    const date = new Date(item[dateKey]);
+                    const key = groupBy === 'year' ? date.getFullYear() : `${date.getMonth() + 1}/${date.getFullYear()}`;
+                    if (!acc[key]) {
+                        acc[key] = 0;
                     }
-                },
-                plugins: [ChartDataLabels] // Activate the plugin
-            });
+                    acc[key] += item.Sales;
+                    return acc;
+                }, {});
 
-            // Pie chart for segment sales
-            const segmentLabels = data.segmentSales.map(item => item.Segment);
-            const segmentSalesData = data.segmentSales.map(item => item.Sales);
+                const sortedKeys = Object.keys(salesData).sort();
+                const dataValues = sortedKeys.map(key => salesData[key]);
 
-            const pieChart2 = new Chart(ctxPie2, {
-                type: 'pie',
-                data: {
-                    labels: segmentLabels,
-                    datasets: [{
-                        data: segmentSalesData,
-                        backgroundColor: [
-                            'rgba(35, 87, 137, 1)',
-                            'rgba(194, 41, 46, 1)',
-                            'rgba(241, 211, 1, 1)'
-                        ],
-                        borderColor: [
-                            'rgba(35, 87, 137, 1)',
-                            'rgba(194, 41, 46, 1)',
-                            'rgba(241, 211, 1, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        datalabels: {
-                            formatter: (value, context) => {
-                                const dataset = context.chart.data.datasets[0];
-                                const total = dataset.data.reduce((sum, currentValue) => sum + currentValue, 0);
-                                const percentage = (value / total * 100).toFixed(2) + '%';
-                                return percentage;
-                            },
-                            color: '#000000',
-                            font: {
-                                weight: 'bold',
-                                size: 10
-                            },
-                            anchor: 'center',
-                            align: 'center'
-                        }
-                    }
-                },
-                plugins: [ChartDataLabels] // Activate the plugin
-            });
+                let chart;
 
-            // Pie chart for category sales
-            const categoryLabels = data.categorySales.map(item => item.Category);
-            const categorySalesData = data.categorySales.map(item => item.Sales);
+                if (ctx === ctxLine1 && lineChart1) {
+                    lineChart1.destroy();
+                    chart = lineChart1;
+                } else if (ctx === ctxLine2 && lineChart2) {
+                    lineChart2.destroy();
+                    chart = lineChart2;
+                }
 
-            const pieChart3 = new Chart(ctxPie3, {
-                type: 'pie',
-                data: {
-                    labels: categoryLabels,
-                    datasets: [{
-                        data: categorySalesData,
-                        backgroundColor: [
-                            'rgba(35, 87, 137, 1)',
-                            'rgba(194, 41, 46, 1)',
-                            'rgba(241, 211, 1, 1)'
-                        ],
-                        borderColor: [
-                            'rgba(35, 87, 137, 1)',
-                            'rgba(194, 41, 46, 1)',
-                            'rgba(241, 211, 1, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        datalabels: {
-                            formatter: (value, context) => {
-                                const dataset = context.chart.data.datasets[0];
-                                const total = dataset.data.reduce((sum, currentValue) => sum + currentValue, 0);
-                                const percentage = (value / total * 100).toFixed(2) + '%';
-                                return percentage;
-                            },
-                            color: '#000000',
-                            font: {
-                                weight: 'bold',
-                                size: 10
-                            },
-                            anchor: 'center',
-                            align: 'center'
-                        }
-                    }
-                },
-                plugins: [ChartDataLabels] // Activate the plugin
-            });
-
-            // Line chart for yearly sales
-            const yearlyLabels = data.yearlySales.map(item => item.Year.toString());
-            const yearlySalesData = data.yearlySales.map(item => item.Sales);
-
-            const lineChart1 = new Chart(ctxLine1, {
-                type: 'line',
-                data: {
-                    labels: yearlyLabels,
-                    datasets: [{
-                        data: yearlySalesData,
-                        fill: false,
-                        borderColor: 'rgba(194, 41, 46, 1)',
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            ticks: {
-                                font: {
-                                    size: 7
-                                },
-                                color: '#000000'
-                            }
-                        },
-                        x: {
-                            ticks: {
-                                font: {
-                                    size: 7
-                                },
-                                color: '#000000'
-                            }
-                        }
+                chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: sortedKeys,
+                        datasets: [{
+                            label: groupBy === 'year' ? 'Yearly Sales' : 'Monthly Sales',
+                            data: dataValues,
+                            fill: false,
+                            borderColor: 'rgba(0, 136, 46, 1)',
+                            tension: 0.1
+                        }]
                     },
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    }
-                }
-            });
-
-            // Line Chart Monthly Sales (single line)
-            const monthlySaless = data.monthlySaless;
-
-            // Prepare labels and datasets for line chart
-            const labels = monthlySaless.map(item => `${item.Month} ${item.Year}`);
-            const salesData = monthlySaless.map(item => item.Sales);
-
-            const lineChart2 = new Chart(ctxLine2, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Monthly Sales',
-                        data: salesData,
-                        fill: false,
-                        borderColor: 'rgba(194, 41, 46, 1)',
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            ticks: {
-                                font: {
-                                    size: 7
-                                },
-                                color: '#000000'
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: '#000000'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#000000'
+                                }
                             }
                         },
-                        x: {
-                            ticks: {
-                                font: {
-                                    size: 7
-                                },
-                                color: '#000000'
+                        plugins: {
+                            legend: {
+                                display: true
                             }
                         }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false,
-                            position: 'top'
-                        }
                     }
+                });
+
+                if (ctx === ctxLine1) {
+                    lineChart1 = chart;
+                } else if (ctx === ctxLine2) {
+                    lineChart2 = chart;
                 }
+            }
+
+            // Function to update filtered data and all charts
+            function updateFilteredData() {
+                const filteredCitySales = filterData(citySalesData);
+                const filteredRegionSales = filterData(regionSalesData);
+                const filteredSegmentSales = filterData(segmentSalesData);
+                const filteredCategorySales = filterData(categorySalesData);
+                const filteredYearlySales = filterData(yearlySalesData);
+                const filteredMonthlySales = filterData(monthlySalesData);
+
+                updateBarChart(filteredCitySales);
+                updatePieChart(ctxPie1, filteredRegionSales, 'Region');
+                updatePieChart(ctxPie2, filteredSegmentSales, 'Segment');
+                updatePieChart(ctxPie3, filteredCategorySales, 'Category');
+                updateLineChart(ctxLine1, filteredYearlySales, 'Order Date', 'year');
+                updateLineChart(ctxLine2, filteredMonthlySales, 'Order Date', 'month');
+            }
+
+            // Event listeners for checkboxes
+            const checkboxes = document.querySelectorAll('.filter input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateFilteredData);
             });
 
+            // Initial call to display data based on default filter settings
+            updateFilteredData();
+
+            // Orders table functionality
             const ordersPerPage = 20;
             const recentOrders = data.recentorder;
             let currentPage = 1;
