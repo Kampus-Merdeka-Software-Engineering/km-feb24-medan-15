@@ -263,6 +263,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const labels = Object.keys(salesData).sort();
             const dataValues = labels.map(label => salesData[label]);
 
+            // Log the labels and dataValues for debugging
+            console.log(`Labels for ${period}:`, labels);
+            console.log(`Data values for ${period}:`, dataValues);
+
             let chart;
 
             if (ctx === ctxLine1 && lineChart1) {
