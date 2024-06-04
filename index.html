@@ -24,13 +24,13 @@
         <div class="menu">
             <ul>
                 <li><a href="#Dashboard"><i class="fas fa-house"></i> <span>Dashboard</span></a></li>
-                <li><a href="#Master Data"><i class="fas fa-database"></i> <span>Recent Orders</span></a></li>
+                <li><a href="#Recent Orders"><i class="fas fa-database"></i> <span>Recent Orders</span></a></li>
                 <li><a href="#About Team"><i class="fas fa-people-group"></i> <span>Our Team</span></a></li>
             </ul>
         </div>
-        <form class="example" action="function.js">
-            <input type="text" placeholder="Search..." id="SearchBox">
-        </form>
+        <div class="example" action="function.js">
+            <input type="text" placeholder="Search for Product..." id="search-input">
+        </div>
     </nav>
 
     <main class="main">
@@ -74,7 +74,7 @@
                     <div class="content2">
                         <div class="bar">
                             <p id="barChartTitle" class="bold-text">Sales by City</p>
-                            <canvas id="barChart" style="width: 343.69px; height: 155px; margin-top: 1px"></canvas>
+                            <canvas id="barChart" width="343.69" height="155"></canvas>
                         </div>
                         <div class="pie">
                             <div class="pie1">
@@ -94,11 +94,11 @@
                     <div class="content3">
                         <div class="line1">
                             <p>Yearly Sales</p>
-                            <canvas id="lineChart1" style="width: 400px; height: 155px; margin-top: 2px"></canvas>
+                            <canvas id="lineChart1" width="400" height="155"></canvas>
                         </div>
                         <div class="line2">
                             <p>Monthly Sales</p>
-                            <canvas id="lineChart2" style="width: 400px; height: 155px; margin-top: 2px"></canvas>
+                            <canvas id="lineChart2" width="400" height="155"></canvas>
                         </div>
                     </div>
                     <div class="content4">
@@ -108,7 +108,7 @@
                                     <p>The highest total sales and the fastest increase were in October 2017.</p>
                                 </div>
                                 <div class="slide" id="slide-2">
-                                    <p>Annual sales increased from 2014 to 2017, showing significant year-over-year growth.</p>
+                                    <p>Annual total sales increased from 2014 to 2017, showing significant year-over-year growth.</p>
                                 </div>
                                 <div class="slide" id="slide-3">
                                     <p>Currently, the largest sales in cities are in Los Angeles and New York City</p>
@@ -131,11 +131,11 @@
                             <span class="checkmark"></span>
                         </label>
                         <label class="container">Office Supplies
-                            <input type="checkbox" value="Office Supplies">
+                            <input type="checkbox" value="Office Supplies" checked="checked">
                             <span class="checkmark"></span>
                         </label>
                         <label class="container">Furniture
-                            <input type="checkbox" value="Furniture">
+                            <input type="checkbox" value="Furniture" checked="checked">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -146,11 +146,11 @@
                             <span class="checkmark"></span>
                         </label>
                         <label class="container">Corporate
-                            <input type="checkbox" value="Corporate">
+                            <input type="checkbox" value="Corporate" checked="checked">
                             <span class="checkmark"></span>
                         </label>
                         <label class="container">Consumer
-                            <input type="checkbox" value="Consumer">
+                            <input type="checkbox" value="Consumer" checked="checked">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -161,22 +161,22 @@
                             <span class="checkmark"></span>
                         </label>
                         <label class="container">Second Class
-                            <input type="checkbox" value="Second Class">
+                            <input type="checkbox" value="Second Class" checked="checked">
                             <span class="checkmark"></span>
                         </label>
                         <label class="container">Same Day
-                            <input type="checkbox" value="Same Day">
+                            <input type="checkbox" value="Same Day" checked="checked">
                             <span class="checkmark"></span>
                         </label>
-                        <label class="container">First Day
-                            <input type="checkbox" value="First Day">
+                        <label class="container">First Class
+                            <input type="checkbox" value="First Class" checked="checked">
                             <span class="checkmark"></span>
                         </label>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="Master Data">
+        <section id="Recent Orders">
             <div class="content5">Recent Orders</div>
             <div class="content6">
                 <table id="recent-orders-table">
@@ -197,7 +197,7 @@
             </div>
         </section>
         <section id="About Team">
-            <h2 class="title">Our Team</h2>
+            <div class="title">Our Team</div>
             <div class="grid2">
                 <div class="content7-1">
                     <div class="team-member">

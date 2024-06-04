@@ -136,7 +136,8 @@ document.addEventListener("DOMContentLoaded", function() {
                             beginAtZero: true,
                             ticks: {
                                 font: {
-                                    size: 7
+                                    size: 9,
+                                    family: 'Urbanist, sans-serif'
                                 },
                                 color: '#000000'
                             }
@@ -146,7 +147,8 @@ document.addEventListener("DOMContentLoaded", function() {
                                 maxRotation: 0,
                                 minRotation: 0,
                                 font: {
-                                    size: 7
+                                    size: 9,
+                                    family: 'Urbanist, sans-serif'
                                 },
                                 color: '#000000'
                             }
@@ -224,7 +226,8 @@ document.addEventListener("DOMContentLoaded", function() {
                             color: '#000000',
                             font: {
                                 weight: 'bold',
-                                size: 10
+                                size: 12,
+                                family: 'Urbanist, sans-serif'
                             },
                             anchor: 'center',
                             align: 'center'
@@ -292,17 +295,28 @@ document.addEventListener("DOMContentLoaded", function() {
                     }]
                 },
                 options: {
-                    responsive: true,
+                    responsive: false,
                     scales: {
                         y: {
                             beginAtZero: true,
                             ticks: {
-                                color: '#000000'
+                                color: '#000000',
+                                font: {
+                                    size:10,
+                                    family: 'Urbanist, sans-serif'
+                                }
                             }
                         },
                         x: {
                             ticks: {
-                                color: '#000000'
+                                color: '#000000',
+                                maxRotation: 0, 
+                                minRotation: 0,
+                                align: 'center',
+                                font: {
+                                    size:10,
+                                    family: 'Urbanist, sans-serif'
+                                }
                             }
                         }
                     },
@@ -348,53 +362,74 @@ document.addEventListener("DOMContentLoaded", function() {
         // Initial call to display data based on default filter settings
         updateFilteredData();
 
-        // Orders table functionality
-        const ordersPerPage = 20;
-        const recentOrders = recentOrderData; // Correct variable name
-        let currentPage = 1;
+// Orders table functionality
+const ordersPerPage = 20;
+let recentOrders = recentOrderData; // Correct variable name
+let currentPage = 1;
 
-        function renderTable(page) {
-            const start = (page - 1) * ordersPerPage;
-            const end = start + ordersPerPage;
-            const ordersToDisplay = recentOrders.slice(start, end);
+function renderTable(page) {
+    const start = (page - 1) * ordersPerPage;
+    const end = start + ordersPerPage;
+    const ordersToDisplay = recentOrders.slice(start, end);
 
-            const tbody = document.querySelector('#recent-orders-table tbody');
-            tbody.innerHTML = '';
+    const tbody = document.querySelector('#recent-orders-table tbody');
+    tbody.innerHTML = '';
 
-            ordersToDisplay.forEach(order => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${order["Order ID"]}</td>
-                    <td>${order["Order Date"]}</td>
-                    <td>${order["Customer Name"]}</td>
-                    <td>${order["Product Name"]}</td>
-                    <td>$${order.Sales.toFixed(2)}</td>
-                `;
-                tbody.appendChild(row);
+    ordersToDisplay.forEach(order => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${order["Order ID"]}</td>
+            <td>${order["Order Date"]}</td>
+            <td>${order["Customer Name"]}</td>
+            <td>${order["Product Name"]}</td>
+            <td>$${order.Sales.toFixed(2)}</td>
+        `;
+        tbody.appendChild(row);
+    });
+
+    renderPagination(page);
+}
+
+function renderPagination(page) {
+    const totalPages = Math.ceil(recentOrders.length / ordersPerPage);
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageLink = document.createElement('a');
+        pageLink.href = '#';
+        pageLink.innerText = i;
+        pageLink.className = i === page ? 'active' : '';
+        pageLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            currentPage = i;
+            renderTable(currentPage);
+        });
+        pagination.appendChild(pageLink);
+    }
+}
+
+renderTable(currentPage);
+
+// Search functionality
+const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.trim().toLowerCase();
+                recentOrders = recentOrderData.filter(order =>
+                    order["Order ID"].toLowerCase().includes(searchTerm) ||
+                    order["Order Date"].toLowerCase().includes(searchTerm) ||
+                    order["Customer Name"].toLowerCase().includes(searchTerm) ||
+                    order["Product Name"].toLowerCase().includes(searchTerm) ||
+                    order.Sales.toFixed(2).includes(searchTerm)
+                );
+
+                currentPage = 1; // Reset to first page after search
+                renderTable(currentPage);
             });
-
-            renderPagination(page);
+        } else {
+            console.error('Element with id "search-input" not found.');
         }
 
-        function renderPagination(page) {
-            const totalPages = Math.ceil(recentOrders.length / ordersPerPage);
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = '';
-
-            for (let i = 1; i <= totalPages; i++) {
-                const pageLink = document.createElement('a');
-                pageLink.href = '#';
-                pageLink.innerText = i;
-                pageLink.className = i === page ? 'active' : '';
-                pageLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    currentPage = i;
-                    renderTable(currentPage);
-                });
-                pagination.appendChild(pageLink);
-            }
-        }
-
-        renderTable(currentPage);
-    }).catch(error => console.error('Error loading JSON data:', error));
+    }).catch(error => console.error('Error in fetching or processing data:', error));
 });
