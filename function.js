@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             ticks: {
                                 color: '#000000',
                                 font: {
-                                    size:10,
+                                    size:9,
                                     family: 'Urbanist, sans-serif'
                                 }
                             }
@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 minRotation: 0,
                                 align: 'center',
                                 font: {
-                                    size:10,
+                                    size:9,
                                     family: 'Urbanist, sans-serif'
                                 }
                             }
