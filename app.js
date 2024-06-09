@@ -15,6 +15,21 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
+    const searchIcon = document.querySelector(".search-icon");
+    const searchBox = document.querySelector(".example");
+  
+    hamburger.addEventListener("click", function () {
+      menu.classList.toggle("active");
+      searchBox.classList.remove("active");
+    });
+  
+    searchIcon.addEventListener("click", function () {
+      searchBox.classList.toggle("active");
+      menu.classList.remove("active");
+    });  
+
     // Slider functionality
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
@@ -302,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             ticks: {
                                 color: '#000000',
                                 font: {
-                                    size:10,
+                                    size:9,
                                     family: 'Urbanist, sans-serif'
                                 }
                             }
@@ -314,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 minRotation: 0,
                                 align: 'center',
                                 font: {
-                                    size:10,
+                                    size:9,
                                     family: 'Urbanist, sans-serif'
                                 }
                             }
