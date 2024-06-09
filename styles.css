@@ -668,7 +668,7 @@ footer {
 }
 
 /* Responsiveness */
-@media (max-width: 1352px) {
+@media (max-width: 1350px) {
   .content2{
     display: flex;
     flex-wrap: wrap;
@@ -688,11 +688,32 @@ footer {
     box-sizing: content-box;
     border-radius: 10px;
     text-align: center;
-    margin-right: 19px;
     width: 495.85px;
     height: 200.29px;
     margin-bottom: 10px;
   }
+  
+  .pie {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .pie1 {
+    font-weight: bold;
+    font-size: 13px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 18px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center; 
+    width: 189.75px;
+    height: 197.96px;
+  }
+  
 
   .line1, .line2{
     margin: 0px 10px 10px 0px;
