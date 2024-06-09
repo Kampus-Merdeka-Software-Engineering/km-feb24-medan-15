@@ -226,6 +226,7 @@ section {
 .content2 {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .bar {
@@ -278,6 +279,11 @@ section {
 .content3 {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  canvas{
+    width: 400px;
+    height: 155px;
+  }
 }
 
 .line1 {
@@ -290,7 +296,7 @@ section {
   border-radius: 10px;
   text-align: center; 
   width: 495.85px;
-  height: 200.29px;
+  height: auto;
   margin-right: 29px;
 }
 
@@ -304,7 +310,7 @@ section {
   border-radius: 10px;
   text-align: center; 
   width: 495.85px;
-  height: 200.29px;
+  height: auto;
 }
 
 #lineChart1, #lineChart2 {
@@ -319,14 +325,13 @@ section {
   background-color: rgba(82, 82, 82, 0.15);
   box-sizing: border-box;
   text-align: center;
-  margin-right: 30px;
   border-radius: 10px;
   position: relative; 
   font-weight: bold;
   font-size: 20px;
   display: flex;
   flex-wrap: wrap;
-  height: 74px;
+  height: fit-content;
 }
 
 /* Slider container */
@@ -347,9 +352,6 @@ transition: transform 0.5s ease-in-out;
   min-width: 100%;
   box-sizing: border-box;
   height: 100%; /* Ensure each slide takes the full height */
-  display: flex;
-  align-items: center; /* Vertically center the content of each slide */
-  justify-content: center; /* Horizontally center the content of each slide */
 }
 
 /* Previous and Next button styles */
@@ -416,9 +418,9 @@ transition: transform 0.5s ease-in-out;
 }
 
 .content6 {
-  margin: 0 auto;
-  width: 95%; /* Mengubah lebar kontainer menjadi 95% dari lebar layar */
+  width: 100%;
   text-align: center;
+  font-weight: bolder;
 }
 
 table {
@@ -483,6 +485,7 @@ tr:last-child td:last-child {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 #pagination a {
@@ -784,7 +787,7 @@ footer {
     border-radius: 10px;
     text-align: center;
     margin-right: 19px;
-    width: 495.85px;
+    width: auto;
     margin-bottom: 10px;
   }
 
@@ -827,7 +830,12 @@ footer {
 }
 
 /* Ukuran Tablet 768px - 1024px */
-/* Ukuran Tablet 768px - 1024px */
+@media (min-width: 1025px){
+  .icons {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .menu, .example {
     display: none; /* Default none */
@@ -872,8 +880,6 @@ footer {
     padding:5px 10px;
     font-weight: bold;
     transition: background-color 0.3s ease, border-left 0.3s ease;
-
-    /* Shadow dan border radius untuk kesan lebih estetik */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
@@ -894,8 +900,9 @@ footer {
     top: 60px;
     right: 15px;
     background-color: #3498db;
-    border: 1px solid #fff;
     padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
   }
 
   .example input {
@@ -936,17 +943,11 @@ footer {
   }
 }
 
-@media (min-width: 1025px){
-  .icons {
-    display: none;
-  }
-}
-
 @media (max-width: 860px) {
   .pie{
     display: flex;
     align-content: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
   }
@@ -959,24 +960,21 @@ footer {
   
   .grid-container {
     display: inline-flex;
-    padding: 20px;
     column-gap: 16px;
-    flex-wrap: wrap;
+    width: 100%;
+    flex-wrap: nowrap;
     flex-direction: column-reverse;
-    align-content: stretch;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
   }
 
   .filtering {
-    width: auto;
-    height: auto;
     text-align: center;
     margin-left: 0px;
+    width: auto;
   }
 
   .filtering h2 {
-    position: relative;
     width: auto;
     font-size: 20px;
     background-color: #00882e;
@@ -995,6 +993,7 @@ footer {
     justify-content: center;
     align-items: baseline;
   }
+
   .filter h3 {
     font-size: 15px;
     font-weight: bold;
@@ -1057,8 +1056,14 @@ footer {
     padding-left: 12px;
   }
 
+  .icons{
+    margin-right: 0px;
+    gap: 0px;
+  }
+
   .content1 {
     flex-direction: column;
+    margin-bottom: 10px;
   }
 
   .content1 h2 {
@@ -1093,9 +1098,16 @@ footer {
     margin: 10px 0;
   }
 
+  .row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+  }
+
   .card {
     flex-direction: column;
     text-align: center;
+    width: max-content;
   }
 
   .card i {
@@ -1125,27 +1137,55 @@ footer {
   }
 
   .bar, .pie1, .line1, .line2 {
-    width: 100%;
+    width: auto;
+    height: auto;
     margin-right: 0;
   }
 
-  #pieChart1, #pieChart2, #pieChart3 {
-    width: 80px;
-    height: 80px;
+  .bar{
+    canvas{
+      width: 250px !important;
+      height: 140px !important;
+    }
   }
 
-  .pie1 {
-    width: 144px;
-    height: auto;
-    padding: 10px 0px;
+  .pie1{
+    height: 150px;
+    font-size: 11px;
+    margin: 10px 5px 10px 5px;
+    canvas{
+      width: 120px !important;
+      height: 120px !important;
+      margin-left: -5px;
+    }
+  }
+
+  #pieChart1, #pieChart2, #pieChart3 {
+    width: 70px;
+  }
+
+  .content3 {
+    display: flex;
+    flex-wrap: wrap;
+    canvas{
+      width: 250px !important;
+      height: 155px !important;
+    }
+  }
+
+  .filter h3 {
+    font-size: 13px;
+    font-weight: bold;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    background-color: #ffffff;
+    text-align: center;
   }
 
   .brand {
     font-size: 1.6rem;
-  }
-
-  .icons{
-    gap: 0px;
   }
 
   .hamburger, .search-icon {
@@ -1162,8 +1202,8 @@ footer {
   }
 
   .menu.active {
-    background-color: #3498db; /* Warna utama */
-    color: #ffffff; /* Warna teks putih */
+    background-color: #3498db; 
+    color: #ffffff;
     position: absolute;
     top: 60px;
     right: 15px;
@@ -1172,9 +1212,48 @@ footer {
     font-weight: bold;
     transition: background-color 0.3s ease, border-left 0.3s ease;
 
-    /* Shadow dan border radius untuk kesan lebih estetik */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
   
+  .content6{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    font-size: 8.3px;
+    font-weight: bolder;
+  }
+
+  td {
+    padding: 5px;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 20px;
+  }
+
+  .content7-1, .content7-2 {
+    height: auto; 
+    display: contents;
+    width: max-content;
+  }
+}
+
+@media (max-width: 470px){
+  .grid2 {
+    grid-template-columns: 1fr; 
+    grid-gap: 20px;
+    justify-items: center;
+  }
+
+  .content7-1, .content7-2 {
+    height: auto; 
+    display: contents;
+    width: max-content;
+  }
+
+  .team-member{
+    width: max-content;
+  }
 }

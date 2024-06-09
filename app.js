@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 minRotation: 0,
                                 align: 'center',
                                 font: {
-                                    size:9,
+                                    size:8,
                                     family: 'Urbanist, sans-serif'
                                 }
                             }
