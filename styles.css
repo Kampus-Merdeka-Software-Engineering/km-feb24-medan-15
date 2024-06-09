@@ -501,8 +501,9 @@ tr:last-child td:last-child {
 }
 
 .filtering {
-  width: auto;
+  width: 183px;
   height: auto;
+  margin-left: auto;
 }
 
 .filtering h2 {
@@ -703,6 +704,71 @@ footer {
     flex-wrap: wrap;
     width: auto;
     align-content: space-around;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .bar {
+    font-weight: bold;
+    font-size: 13px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background-color: #ffffff;
+    box-sizing: content-box;
+    border-radius: 10px;
+    text-align: center;
+    margin-right: 19px;
+    width: auto;
+    height: 168px;
+  }
+
+  .pie1{
+    width: 150px;
+    height: auto;
+    padding: 13px 0px;
+  }
+
+  .line1, .line2{
+    margin: 0px 10px 10px 0px;
+    box-sizing: content-box;
+    padding: 14px;
+    width: auto;
+    height: auto;
+  }
+
+  .line2{
+    margin-right: 0px;
+  }
+  .content3{
+    justify-content: center;
+  }
+
+  .member-name {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px 22px;
+    background-color: #ffffff;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 4px 8px 0 rgba(150, 41, 41, 0.2);
+    margin: 0px 10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navbar{
+    padding: 0px;
+  }
+
+  .menu ul {
+    gap: 0rem;
+  }
+  
+  .content2{
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    align-content: space-around;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
@@ -719,32 +785,127 @@ footer {
     text-align: center;
     margin-right: 19px;
     width: 495.85px;
-    height: 200.29px;
     margin-bottom: 10px;
   }
 
-  .line1, .line2{
-    margin: 0px 10px 10px 0px;
-    box-sizing: content-box;
-    padding: 16px;
+  .pie1{
+    width: 190px;
+    height: auto;
+    padding: 13px;
   }
 
-  .content3{
-    justify-content: center;
+  .filtering h2 {
+    font-size: 20px;
+    background-color: #00882e;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 9px;
+    margin-bottom: 6px;
+    color: #ffffff;
+    padding: 4px;
+    line-height: 40px;
   }
-
-  .member-name {
-    font-weight: 600;
-    font-size: 14px;
-    padding: 5px 22px;
+  
+  .filter {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  .filter h3{
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    margin-top: 9px;
+    margin-bottom: 6px;
     background-color: #ffffff;
-    border-radius: 15px 15px 0 0;
-    box-shadow: 0 4px 8px 0 rgba(150, 41, 41, 0.2);
-    margin: 0px 10px;
+    text-align: center;
+    line-height: 35px;
   }
 }
 
-@media (max-width: 1050px) {
+/* Ukuran Tablet 768px - 1024px */
+/* Ukuran Tablet 768px - 1024px */
+@media (max-width: 1024px) {
+  .menu, .example {
+    display: none; /* Default none */
+    flex-direction: column;
+  }
+  
+  .menu.active {
+    display: flex; /* Munculkan menu ketika active */
+  }
+
+  .icons {
+    display: flex;
+    margin-right: 10px;
+  }
+  
+  .icons i {
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .hamburger, .search-icon {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff;
+    padding: 15px;
+  }
+
+  /* Sesuaikan penempatan ikon hamburger */
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .menu.active {
+    background-color: #3498db; /* Warna utama */
+    color: #ffffff; /* Warna teks putih */
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    padding:5px 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, border-left 0.3s ease;
+
+    /* Shadow dan border radius untuk kesan lebih estetik */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  /* Tambahan animasi untuk perubahan yang lebih halus */
+  .menu.active:hover {
+    background-color: #2980b9; /* Warna utama lebih gelap saat hover */
+    border-left: 5px solid #d35400; /* Warna aksen lebih gelap saat hover */
+  }
+  
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .example.active {
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background-color: #3498db;
+    border: 1px solid #fff;
+    padding: 10px;
+  }
+
+  .example input {
+    width: 200px;
+    padding: 5px;
+    border: none;
+    background-color: #fff;
+    color: #333;
+  }
+
   .grid2 {
     grid-template-columns: 1fr 1fr 1fr; 
     grid-gap: 20px;
@@ -775,7 +936,7 @@ footer {
   }
 }
 
-@media (min-width: 861px){
+@media (min-width: 1025px){
   .icons {
     display: none;
   }
@@ -792,72 +953,10 @@ footer {
 
   .pie1{
     margin: 10px 20px;
+    width: 180px;
+    height: auto;
   } 
-
-  .menu, .example { 
-    display: none;
-  }
-
-  .icons {
-    display: flex;
-    margin-right: 10px;
-  }
   
-  .icons i {
-    margin-left: 15px;
-    cursor: pointer;
-    font-size: 24px;
-    color: #fff;
-  }
-  .hamburger, .search-icon {
-    display: block;
-    cursor: pointer;
-    font-size: 24px;
-    color: #fff;
-    padding: 15px;
-  }
-
-  /* Sesuaikan penempatan ikon hamburger */
-  .navbar {
-    justify-content: space-between;
-  }
-
-  /* Tampilkan menu saat ikon hamburger di klik */
-  .menu.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 15px;
-    background-color: #333;
-    border: 1px solid #fff;
-    padding: 10px;
-  }
-
-  .menu li {
-    margin: 10px 0;
-  }
-
-  /* Tampilkan search box saat ikon pencarian di klik */
-  .example.active {
-    display: block;
-    position: absolute;
-    top: 60px;
-    right: 15px;
-    background-color: #333;
-    border: 1px solid #fff;
-    padding: 10px;
-  }
-
-  .example input {
-    width: 200px;
-    padding: 5px;
-    border: none;
-    background-color: #fff;
-    color: #333;
-  }
-  
- 
   .grid-container {
     display: inline-flex;
     padding: 20px;
@@ -870,8 +969,10 @@ footer {
   }
 
   .filtering {
+    width: auto;
     height: auto;
     text-align: center;
+    margin-left: 0px;
   }
 
   .filtering h2 {
@@ -923,10 +1024,15 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+/* Ukuran Mobile View 320px - 768px */
+@media (min-width: 320px) and (max-width: 768px) {
   .navbar {
-    align-items: flex-start;
     justify-content: space-between;
+    padding: 10px;
+  }
+
+  .home{
+    padding: 0px;
   }
 
   .menu {
@@ -949,11 +1055,6 @@ footer {
   .menu li a {
     text-align: left;
     padding-left: 12px;
-  }
-
-  .hamburger {
-    display: block;
-    cursor: pointer;
   }
 
   .content1 {
@@ -984,31 +1085,9 @@ footer {
     font-size: 12px;
   }
 
-  .logo {
-    width: 25px;
-    height: 25px;
-  }
-
-  .brand {
-    font-size: 1.2rem;
-  }
-
   .menu a {
     font-size: 12px;
   }
-
-  .pie1 {
-    width: 150px;
-    height: 150px;
-  }
-
-  #pieChart1, #pieChart2, #pieChart3 {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-@media (max-width: 480px) {
   .content1 h2 {
     font-size: 20px;
     margin: 10px 0;
@@ -1050,35 +1129,52 @@ footer {
     margin-right: 0;
   }
 
-  .pie1 {
-    width: 100px;
-    height: 100px;
-  }
-
   #pieChart1, #pieChart2, #pieChart3 {
     width: 80px;
     height: 80px;
   }
 
-  .logo {
-    width: 15px;
-    height: 15px;
+  .pie1 {
+    width: 144px;
+    height: auto;
+    padding: 10px 0px;
   }
 
   .brand {
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
 
-  .menu a {
-    font-size: 10px;
+  .icons{
+    gap: 0px;
   }
 
-  .menu {
-    display: none;
-  }
-
-  .hamburger {
+  .hamburger, .search-icon {
     display: block;
     cursor: pointer;
+    font-size: 12px;
+    color: #fff;
+    padding: 10px;
   }
+
+  .menu ul{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu.active {
+    background-color: #3498db; /* Warna utama */
+    color: #ffffff; /* Warna teks putih */
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    padding: 0px;
+    width: 200px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, border-left 0.3s ease;
+
+    /* Shadow dan border radius untuk kesan lebih estetik */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
 }
